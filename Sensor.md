@@ -4,8 +4,8 @@
 2.	Cảm biến vị trí: Cho biết về vị trí vật lý của thiết bị
 3.	Cảm biến môi trường: Cho biết thông tin về nhiệt độ, độ ẩm ... của môi trường.
 
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor-1-800x600.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor-1-800x600.jpg)
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor_2.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor_2.jpg)
+![./Images/sensor-1-800x600.jpg](./Images/sensor-1-800x600.jpg)
+![./Images/sensor_2.jpg](./Images/sensor_2.jpg)
 
 ## Sử dụng trong Activity:
 ```java
