@@ -4,7 +4,7 @@
 2.	Cảm biến vị trí: Cho biết về vị trí vật lý của thiết bị
 3.	Cảm biến môi trường: Cho biết thông tin về nhiệt độ, độ ẩm ... của môi trường.
 
-![https://photos.app.goo.gl/Yhb0A1ZWDF6xhStf1](https://photos.app.goo.gl/Yhb0A1ZWDF6xhStf1)
+![https://drive.google.com/file/d/1ldb6-x5gK_aoNTINfqcNKA0YV2f_Ljzr/view?usp=sharing](https://drive.google.com/file/d/1ldb6-x5gK_aoNTINfqcNKA0YV2f_Ljzr/view?usp=sharing)
 
 ##Sử dụng trong Activity:
 ```ruby
