@@ -1,4 +1,4 @@
-App Component – Thành phần trong ứng dụng Android
+# App Component – Thành phần trong ứng dụng Android
 1.	Activities:
     1. Ra lệnh cho UI, sử lý sự kiện người dùng trên màn hình hiện tại
     2. Là màn hình nhỏ, riêng lẻ
