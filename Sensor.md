@@ -4,11 +4,11 @@
 2.	Cảm biến vị trí: Cho biết về vị trí vật lý của thiết bị
 3.	Cảm biến môi trường: Cho biết thông tin về nhiệt độ, độ ẩm ... của môi trường.
 
-![Sensor_1](./Images/sensor_1.jpg)
-
+![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor_1.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor_1.jpg)
+![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor_2.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/sensor_2.jpg)
 
 ## Sử dụng trong Activity:
-```ruby
+```java
 private TextView mTextView_Value;
 
 private SensorManager mSensorManager;
