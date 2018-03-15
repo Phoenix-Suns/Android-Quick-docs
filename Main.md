@@ -5,6 +5,7 @@
     1. [Application - Trạng thái của ứng dụng](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App-Components/Application.md)
     2. [Activity - Cửa sổ tương tác ](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App-Components/Activity.md)
     3. [Intent – Ý định – liên kết các Component lại](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App-Components/Intent.md)
+    4. [Service - Chạy ngầm](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App-Components/Service/Service-Basic.md)
 
 2. Others
     1. [Sensor - Sử dụng Cảm biến](Sensor.md)
