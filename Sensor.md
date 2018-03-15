@@ -6,6 +6,8 @@
 
 ![https://drive.google.com/file/d/1ldb6-x5gK_aoNTINfqcNKA0YV2f_Ljzr/view?usp=sharing](https://drive.google.com/file/d/1ldb6-x5gK_aoNTINfqcNKA0YV2f_Ljzr/view?usp=sharing)
 
+![https://drive.google.com/file/d/0B08bpLmwbPcod1BWcy1YUlUwOUU/view?usp=sharing](https://drive.google.com/file/d/0B08bpLmwbPcod1BWcy1YUlUwOUU/view?usp=sharing)
+
 ##Sử dụng trong Activity:
 ```ruby
 private TextView mTextView_Value;
