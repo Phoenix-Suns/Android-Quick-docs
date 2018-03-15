@@ -2,7 +2,7 @@
 ## Menu
 
 1. [App Component - Thành phần chính của 1 ứng dụng ](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App-Components/App-Component%20l%C3%A0%20g%C3%AC.md)
-    1. 
+    1. [Activity - Cửa sổ tương tác ](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App-Components/Activity.md)
 2. Others
     1. [Sensor - Sử dụng Cảm biến](Sensor.md)
     2. [Animation - Hiệu ứng chuyển động](Sensor.md)
