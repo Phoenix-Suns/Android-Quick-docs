@@ -1,5 +1,5 @@
-#SENSOR
-##Các loại Cảm biến trong Android:
+# SENSOR
+## Các loại Cảm biến trong Android:
 1.	Cảm biến gia tốc: Cho biết về lực gia tốc và độ quay của thiết bị theo các trục tọa độ
 2.	Cảm biến vị trí: Cho biết về vị trí vật lý của thiết bị
 3.	Cảm biến môi trường: Cho biết thông tin về nhiệt độ, độ ẩm ... của môi trường.
@@ -8,7 +8,7 @@
 
 ![https://drive.google.com/file/d/0B08bpLmwbPcod1BWcy1YUlUwOUU/view?usp=sharing](https://drive.google.com/file/d/0B08bpLmwbPcod1BWcy1YUlUwOUU/view?usp=sharing)
 
-##Sử dụng trong Activity:
+## Sử dụng trong Activity:
 ```ruby
 private TextView mTextView_Value;
 
