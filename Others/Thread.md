@@ -43,7 +43,7 @@ new Thread(new Runnable() {
 
 ## AsyncTask (Asynchronous Task) - Đồng bộ tác vụ
 
-![async task 1](../Images/Thread_AsyncTask.png)
+![async task 1](/Images/Thread_AsyncTask.png)
 
 ### Code mẫu
 
