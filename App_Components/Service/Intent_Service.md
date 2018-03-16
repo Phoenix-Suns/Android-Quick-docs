@@ -1,6 +1,15 @@
 # Intent Service – Tự dừng sau khi trả về
 
-**Intent Service là gì?**
+<!-- TOC -->
+
+- [Intent Service – Tự dừng sau khi trả về](#intent-service--tự-dừng-sau-khi-trả-về)
+        - [Intent Service là gì?](#intent-service-là-gì)
+    - [Template - Code mẫu:](#template---code-mẫu)
+    - [Activity gọi:](#activity-gọi)
+
+<!-- /TOC -->
+
+### Intent Service là gì?
 Tự dừng lại sau khi trả về kết quả, hay hàm **“onHandleIntent”** xử lý xong
 
 ## Template - Code mẫu:

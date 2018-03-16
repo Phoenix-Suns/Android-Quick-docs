@@ -1,4 +1,13 @@
 # SENSOR
+
+<!-- TOC -->
+
+- [SENSOR](#sensor)
+    - [Các loại Cảm biến trong Android:](#các-loại-cảm-biến-trong-android)
+    - [Sử dụng trong Activity:](#sử-dụng-trong-activity)
+
+<!-- /TOC -->
+
 ## Các loại Cảm biến trong Android:
 1.	Cảm biến gia tốc: Cho biết về lực gia tốc và độ quay của thiết bị theo các trục tọa độ
 2.	Cảm biến vị trí: Cho biết về vị trí vật lý của thiết bị

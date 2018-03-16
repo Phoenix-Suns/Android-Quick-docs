@@ -1,6 +1,19 @@
 # Bound Service – lấy kết quả liên tục
 
-**Bound Service là gì?**
+<!-- TOC -->
+
+- [Bound Service – lấy kết quả liên tục](#bound-service--lấy-kết-quả-liên-tục)
+        - [Bound Service là gì?](#bound-service-là-gì)
+        - [Bound Service Template - Code Mẫu:](#bound-service-template---code-mẫu)
+        - [Gọi trong Component khác (ví dụ: Activity):](#gọi-trong-component-khác-ví-dụ-activity)
+    - [Sử dụng Messager để tương tác](#sử-dụng-messager-để-tương-tác)
+        - [Cách sử dụng:](#cách-sử-dụng)
+        - [Template - Code mẫu:](#template---code-mẫu)
+        - [Activity sử dụng:](#activity-sử-dụng)
+
+<!-- /TOC -->
+
+### Bound Service là gì?
 * Component ràng buộc Service để lấy kết quả liên tục
 * Component chạy Service: **bindService()**
 * Service truy cập hàm: **onBind()**

@@ -1,4 +1,20 @@
 # Intent – Ý định – liên kết các Component lại
+
+<!-- TOC -->
+
+- [Intent – Ý định – liên kết các Component lại](#intent--ý-định--liên-kết-các-component-lại)
+    - [Explicit Intent - tin nhắn cụ thể](#explicit-intent---tin-nhắn-cụ-thể)
+    - [Implicit Intent - tin nhắn chung](#implicit-intent---tin-nhắn-chung)
+- [Intent Parcelable – Gởi Object cho App Component khác](#intent-parcelable--gởi-object-cho-app-component-khác)
+    - [Các bước thực hiện](#các-bước-thực-hiện)
+        - [1.	Tạo Lớp chuyển:](#1	tạo-lớp-chuyển)
+        - [2.	Hàm gởi:](#2	hàm-gởi)
+        - [3.	Hàm nhận:](#3	hàm-nhận)
+- [Common Intents](#common-intents)
+    - [**See also**](#see-also)
+
+<!-- /TOC -->
+
 **Intent là gì?**
 1.	Là 1 tin nhắn yêu cầu hành động Component khác
 2.	Có 2 loại:

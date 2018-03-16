@@ -6,6 +6,9 @@
     2. [Activity - Cửa sổ tương tác ](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Activity.md)
     3. [Intent – Ý định – liên kết các Component lại](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Intent.md)
     4. [Service - Chạy ngầm](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Service/Service_Basic.md)
+        1. [Intent Service – Tự dừng sau khi trả về ](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Service/Intent_Service.md)
+        2. [Bound Service – lấy kết quả liên tục](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Service/Bound_Services.md)
+        3. ADIL - Chưa thực hiện
 
 2. Others
     1. [Sensor - Sử dụng Cảm biến](Sensor.md)

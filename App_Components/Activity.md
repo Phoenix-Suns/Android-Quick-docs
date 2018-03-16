@@ -1,5 +1,17 @@
 # Activity – Màn hình hiển thị, tương tác (giống 1 cửa sổ)
 
+<!-- TOC -->
+
+- [Activity – Màn hình hiển thị, tương tác (giống 1 cửa sổ)](#activity--màn-hình-hiển-thị-tương-tác-giống-1-cửa-sổ)
+        - [Khai báo tồn tại trong Mainifesh:](#khai-báo-tồn-tại-trong-mainifesh)
+        - [Vòng đời](#vòng-đời)
+            - [Ghi nhớ:](#ghi-nhớ)
+        - [Khởi động Activity trong Component(Activity khác):](#khởi-động-activity-trong-componentactivity-khác)
+        - [Mở Activity Lấy kết quả trả về:](#mở-activity-lấy-kết-quả-trả-về)
+        - [Mở Activity Dạng Dialog (cửa sổ):](#mở-activity-dạng-dialog-cửa-sổ)
+
+<!-- /TOC -->
+
 ### Khai báo tồn tại trong Mainifesh:
 ```xml
 <manifest ...="">

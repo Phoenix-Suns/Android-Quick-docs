@@ -1,5 +1,21 @@
 # Services – Xử lý tiến trình chạy nền
-**Service là gì?**
+
+<!-- TOC -->
+
+- [Services – Xử lý tiến trình chạy nền](#services--xử-lý-tiến-trình-chạy-nền)
+        - [Service là gì?](#service-là-gì)
+        - [Khai báo trong Mainifresh:](#khai-báo-trong-mainifresh)
+        - [Vòng đời:](#vòng-đời)
+        - [Service template - Mẫu:](#service-template---mẫu)
+        - [Khởi động Service:](#khởi-động-service)
+        - [Dừng Service:](#dừng-service)
+    - [Nhận kết quả Service trả về qua Receiver:](#nhận-kết-quả-service-trả-về-qua-receiver)
+        - [Trực tiếp trong Service:](#trực-tiếp-trong-service)
+        - [Gián tiếp qua Receiver:](#gián-tiếp-qua-receiver)
+
+<!-- /TOC -->
+
+### Service là gì?
 * Là thành phần chạy ngầm, không hiển thị giao diện.
 * Có thể chạy vô thời hạn, khi thành phần bắt đầu bị hủy (Activity)
 * Không chạy Thread, phải tự tạo
@@ -27,7 +43,7 @@
     1. Service sẽ truy cập: **onBind()**
     2. Component giao tiếp Service = interface trả về **IBinder**
 
-### Service template - Mẫu:
+### Service template - Code Mẫu:
 ```java
 public class MusicService extends Service {
 
@@ -113,13 +129,13 @@ public class MusicService extends Service {
 onStartCommand Return:
 1. START_NOT_STICKY:
     1. Tắt Service – Hệ thống (Android OS) không cần tạo lại. Mất kết quả.
-    2. Sử dụng: Khởi động lại Unfinish Jobs cùng Aplication.
+    2. Sử dụng: Khởi động lại **Unfinish Jobs cùng Aplication.**
 2. START_STICKY:
     1. Tắt Service – đủ tài nguyên – Hệ thống tự tạo lại = null Intent.
-    2. Sử dụng khi: Phát Media, Không cần lệnh chạy, chạy vô thời hạn, chạy để sử lý.
+    2. Sử dụng khi: **Phát Media, Không cần lệnh chạy, chạy vô thời hạn, chạy để sử lý**.
 3. START_REDELIVER_INTENT
     1. Tắt Service – hệ thống tự tạo lại = Intent cuối cùng.
-    2. Sử dụng khi: Service cần khởi động lặp tức, như tải 1 tập tin (tải lại sau khi chết =D).
+    2. Sử dụng khi: Service cần **khởi động lặp tức**, như tải 1 tập tin (tải lại sau khi chết =D).
 
 ### Khởi động Service:
 ```java

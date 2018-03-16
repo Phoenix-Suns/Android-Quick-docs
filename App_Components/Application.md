@@ -1,6 +1,15 @@
 # APPLICATION
 Lưu trữ trạng thái cục bộ của ứng dụng.
 
+<!-- TOC -->
+
+- [APPLICATION](#application)
+    - [Tạo File: AppApplication.java](#tạo-file-appapplicationjava)
+    - [Khai báo trong AndroidManifest.xml](#khai-báo-trong-androidmanifestxml)
+    - [Component(Activity) khác gọi để sử dụng](#componentactivity-khác-gọi-để-sử-dụng)
+
+<!-- /TOC -->
+
 ## Tạo File: AppApplication.java
 ```java
 public class AppApplication extends Application {
