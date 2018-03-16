@@ -2,6 +2,30 @@
 
 ![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content_provider.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content_provider.jpg)
 
+<!-- TOC -->
+
+- [Content Providers – Lưu trữ nội dung, dữ liệu](#content-providers--lưu-trữ-nội-dung-dữ-liệu)
+    - [Content Providers là gì](#content-providers-là-gì)
+    - [Content URIs – Cấu trúc dữ liệu](#content-uris--cấu-trúc-dữ-liệu)
+    - [Các phương thức truy vấn](#các-phương-thức-truy-vấn)
+    - [Cấu trúc Package(Thư mục) đề xuất](#cấu-trúc-packagethư-mục-đề-xuất)
+    - [Tạo Content Provider](#tạo-content-provider)
+        - [Các bước thực hiện](#các-bước-thực-hiện)
+        - [Bước 1: Khởi tạo CSDL (SQLite) truy vấn](#bước-1-khởi-tạo-csdl-sqlite-truy-vấn)
+            - [Class Note, binding bảng Note](#class-note-binding-bảng-note)
+            - [Class NoteData, Xử lý truy vấn trong bảng Note](#class-notedata-xử-lý-truy-vấn-trong-bảng-note)
+            - [Class BaseDataHandle, Khởi tạo CSDL Sqlite](#class-basedatahandle-khởi-tạo-csdl-sqlite)
+        - [Bước 2: Tạo Content Provider Class, định nghĩa Content URL để truy xuất](#bước-2-tạo-content-provider-class-định-nghĩa-content-url-để-truy-xuất)
+            - [Content Provider Class, xử lý khi nhận truy vấn từ Content Url](#content-provider-class-xử-lý-khi-nhận-truy-vấn-từ-content-url)
+        - [Bước 3: Đăng kí trong Mainifesh](#bước-3-đăng-kí-trong-mainifesh)
+        - [Bước 4: Kế thừa truy vấn, trong lớp kế thừa Content Provider](#bước-4-kế-thừa-truy-vấn-trong-lớp-kế-thừa-content-provider)
+        - [Bước 5: Test, chạy thử kiểm tra](#bước-5-test-chạy-thử-kiểm-tra)
+            - [Hiển thị ListView trong App khác](#hiển-thị-listview-trong-app-khác)
+            - [Thêm Note từ App khác](#thêm-note-từ-app-khác)
+            - [Lấy Note thông qua Id từ App khác](#lấy-note-thông-qua-id-từ-app-khác)
+
+<!-- /TOC -->
+
 ## Content Providers là gì
 
 * Truy cập, chỉnh sửa dữ liệu (nội dung) có cấu trúc. Dữ liệu: **Databases, files, network…**
@@ -427,3 +451,10 @@ while (cursor.moveToNext()) {
 }
 cursor.close();
 ```
+
+---
+**Tham khảo:**
+http://developer.android.com/guide/topics/providers/content-providers.html
+https://laptrinhtuduy.wordpress.com/2014/04/28/content-providers-trong-android/
+http://www.tutorialspoint.com/android/android_content_providers.htm
+http://code.tutsplus.com/tutorials/android-fundamentals-working-with-content-providers–mobile-5549
