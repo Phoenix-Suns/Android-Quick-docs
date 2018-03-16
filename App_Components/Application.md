@@ -30,7 +30,7 @@ public class AppApplication extends Application {
 </manifest>
 ```
 
-## Gọi để sử dụng trong Component(Activity khác)
+## Component(Activity) khác gọi để sử dụng
 ```java
 MyApplication myApplication = (MyApplication) getApplication();
 myApplication.setGlobalValue("1234");
