@@ -11,9 +11,11 @@
         2. [Bound Service – lấy kết quả liên tục](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Service/Bound_Services.md)
         3. ADIL - Chưa thực hiện
     5. [Content Providers – Lưu trữ nội dung, dữ liệu](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Content_Provider.md)
+    6. [Broadcast Receiver (receiver) - Nhận sự kiện](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Broadcast_Receiver.md)
+
 
 2. Others
-    1. [Sensor - Sử dụng Cảm biến](Sensor.md)
+    1. [Sensor - Sử dụng Cảm biến](Others/Sensor.md)
     2. [Animation - Hiệu ứng chuyển động](Sensor.md)
         1. [Frame Animation - Hiệu ứng theo nhiều hình](Animations/Frame-Animation.md)
         2. [View Animation – Hiệu ứng cơ bản – Chuyển hoạt](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Animations/Properties-Animation.md)

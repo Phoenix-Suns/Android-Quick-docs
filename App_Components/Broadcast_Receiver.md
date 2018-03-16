@@ -1,9 +1,9 @@
-# Broadcast Receiver (receiver)
+# Broadcast Receiver (receiver) - Nhận sự kiện
 
 <!-- TOC -->
 
-- [Broadcast Receiver (receiver)](#broadcast-receiver-receiver)
-        - [Receiver là gì](#receiver-là-gì)
+- [Broadcast Receiver (receiver) - Nhận sự kiện](#broadcast-receiver-receiver---nhận-sự-kiện)
+    - [Receiver là gì](#receiver-là-gì)
     - [1 - Tạo thông qua Manifesh:](#1---tạo thông-qua-manifesh)
     - [2 - Tạo thông qua biến, trong Component](#2---tạo thông-qua-biến-trong-component)
         - [Khai báo:](#khai-báo)
@@ -13,7 +13,7 @@
 
 <!-- /TOC -->
 
-### Receiver là gì
+## Receiver là gì
 
 * **Nhận sự kiện** phát đi từ:
   * Các ứng dụng (tự tạo tên sự kiện trong app)
