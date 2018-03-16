@@ -13,11 +13,34 @@
     5. [Content Providers – Lưu trữ nội dung, dữ liệu](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Content_Provider.md)
     6. [Broadcast Receiver (receiver) - Nhận sự kiện](https://github.com/luunghiatran/Android-Quick-docs/blob/master/App_Components/Broadcast_Receiver.md)
     7. [# Fragment - Mảnh, phần giao diện]
+        1. [Fragment Basic]
+        2. [MENU FRAGMENT – Giao diện menu tùy biến]
+        3. List Fragment
+
+2. App Resources - Tài nguyên, file sử dụng
+    1. Drawable Resource - tài nguyên ảnh
+    2. Menu Resource - Menu chức năng
+    3. String Resource - Tài nguyên chữ, kí tự, văn bản sử dụng
+    4. Style resource – Kiểu, mẫu
+    5. Other Resource - tài nguyên khác
+
+3. User Interface
+    1. Menu - Tập hợp tác vụ
+        1. Contextual Action Bar (CAB), Menu Phụ
+    2. TOAST CUSTOM LAYOUT
+    3. Notification - Thông báo trên thanh trạng thái
+        1. NOTIFICATION Custom
+    4. Preference Screen - Màn hình cài đặt
+    
 
 
-2. Others
+
+3. Others
     1. [Sensor - Sử dụng Cảm biến](Others/Sensor.md)
     2. [Animation - Hiệu ứng chuyển động](Sensor.md)
         1. [Frame Animation - Hiệu ứng theo nhiều hình](Animations/Frame-Animation.md)
         2. [View Animation – Hiệu ứng cơ bản – Chuyển hoạt](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Animations/Properties-Animation.md)
     3. [Thread - Luồng](/Others/Thread.md)
+
+
+    ![image_1](/Images/Thread_AsyncTask.png)
