@@ -38,39 +38,42 @@ res/anim/filename.xml
 ### Alpha Animation (Độ trong suốt):
 
 ```xml
+<set ... android:fillAfter="true" >
     <alpha
-        android:duration="3000"
-        android:fromalpha="0"
-        android:toalpha="1" />
+        android:duration="1000"
+        android:fromAlpha="0.0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:toAlpha="1.0" />
+</set>
 ```
 ### Rotate Animation (Độ xoay):
 ```xml
     <rotate
         android:duration="3000"
-        android:fromdegrees="0"
-        android:pivotx="50%"
-        android:pivoty="50%"
-        android:todegrees="360"/>
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="360"/>
 ```
 ### Scale Animation (Độ co dãn):
 ```xml
     <scale
          android:duration="3000"
-         android:fromxscale="1"
-         android:fromyscale="1"
-         android:pivotx="50%"
-         android:pivoty="50%"
-         android:toxscale="2"
-         android:toyscale="2" />
+         android:fromXScale="1"
+         android:fromYScale="1"
+         android:pivotX="50%"
+         android:pivotY="50%"
+         android:toXScale="2"
+         android:toyScale="2" />
 ```
 ### Translate Animation (Độ đi chuyển):
 ```xml
     <translate
         android:duration="3000"
-        android:fromxdelta="-50%"
-        android:fromydelta="-50%"
-        android:toxdelta="0%"
-        android:toydelta="0%" />
+        android:fromXDelta="-50%"
+        android:fromYDelta="-50%"
+        android:toXDelta="0%"
+        android:toYDelta="0%" />
 ```
 
 ### Set/Batch Animation (nhiều hiệu ứng):
