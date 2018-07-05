@@ -64,7 +64,7 @@ Các tác vụ, chức năng hiển thị theo ngữ cảnh.
 
 ## Popup Menu, Tạo Menu hiện dưới Button1
 
-![popup_menu](/Images/menu_basic_2.jpg)
+![popup_menu](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_basic_2.jpg)
 
 ### Hiển thị Popupmenu
 
@@ -98,7 +98,7 @@ Tạo style: value/styles.xml
 
 ## OptionMenu, Tạo MainMenu cho Activity
 
-![popup_menu](/Images/menu_basic_3.jpg)
+![popup_menu](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_basic_3.jpg)
 
 ```java
 /**Menu của Activity */
@@ -164,7 +164,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 ## ContentMenu, tạo Menu khi nhấn giữ Button2
 
-![popup_menu](/Images/menu_basic_1.jpg)
+![popup_menu](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_basic_1.jpg)
 
 ```java
 @Override

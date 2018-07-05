@@ -23,7 +23,7 @@
 
 Vòng đời 1 View
 
-![image_1](/Images/custom_view_lifecycle.png)
+![image_1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/custom_view_lifecycle.png)
 
 ## Code Example
 
@@ -148,7 +148,7 @@ mCustomButton.setTitle("sdflalsdlfal");
 
 ### Tạo 1 Button Vẽ bằng Canvas
 
-![image_1](/Images/custom_view_example_1.png)
+![image_1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/custom_view_example_1.png)
 
 #### File: res/values/attrs_draw_button.xml
 

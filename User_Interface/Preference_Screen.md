@@ -1,6 +1,6 @@
 # Preference Screen - Màn hình cài đặt
 
- ![image_1](/Images/preference_screen_1.jpg)
+ ![image_1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/preference_screen_1.jpg)
 
 ## Bước 1: tạo file Setting: res/xml/app_preference.xml
 

@@ -1,6 +1,6 @@
 # TOAST CUSTOM LAYOUT
 
- ![async task 1](/Images/toast_custom_layout.jpg)
+ ![async task 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/toast_custom_layout.jpg)
 
  **Lưu ý: ko sử dụng Input Control cho Toast Layout được, không tương tác được.**
 

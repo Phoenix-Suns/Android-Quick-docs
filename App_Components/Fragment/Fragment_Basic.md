@@ -26,7 +26,7 @@ Fragment là 1 mảnh, mảng, miếng của Interface, activity. Có hàng đ�
 
 ### Add by Code
 
-![fragment_basic_1.jpg](/Images/fragment_basic_1.jpg)
+![fragment_basic_1.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/fragment_basic_1.jpg)
 
 #### Bước 1: Tạo Fragment
 
@@ -94,7 +94,7 @@ Trong file, tạo fragment như trên, MainActivity.xml chỉ cần gọi:
 
 Click Button trong FragmentA (xanh lục) sẽ truyền số lần vào FragmentB (tím)
 
-![fragment_basic_2.jpg](/Images/fragment_basic_2.jpg)
+![fragment_basic_2.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/fragment_basic_2.jpg)
 
 ### Bước 1: tạo interface giao tiếp
 
@@ -286,7 +286,7 @@ public class MainActivity extends Activity implements IFragmentCommunicate {
 
 ## Xủ lý Fragment trên Activity
 
-![fragment_basic_3.jpg](/Images/fragment_basic_3.jpg)
+![fragment_basic_3.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/fragment_basic_3.jpg)
 
 ```java
 public class MainActivity extends Activity {

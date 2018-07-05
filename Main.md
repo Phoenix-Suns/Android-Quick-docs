@@ -43,4 +43,4 @@
     3. [Thread - Luồng](/Others/Thread.md)
 
 
-    ![image_1](/Images/Thread_AsyncTask.png)
+    ![image_1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/Thread_AsyncTask.png)

@@ -17,7 +17,7 @@ View với sử lý riêng
 
 ### Vòng đời, quy trình tồn tại:
 
-![fragment_lifecycle.png](/Images/fragment_lifecycle.png)
+![fragment_lifecycle.png](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/fragment_lifecycle.png)
 
 ### Template - Code mẫu
 

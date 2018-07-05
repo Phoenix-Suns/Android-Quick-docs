@@ -1,6 +1,6 @@
 # List Fragment
 
-![list fragment](/Images/list_fragment.jpg)
+![list fragment](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/list_fragment.jpg)
 
 ## File: fragment_list_a.xml
 

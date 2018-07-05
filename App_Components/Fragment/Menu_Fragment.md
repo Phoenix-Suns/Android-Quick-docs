@@ -19,14 +19,14 @@
 
 <!-- /TOC -->
 
-![menu fragment 1](/Images/menu_fragment_1.jpg)
+![menu fragment 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_fragment_1.jpg)
 
 **Giao diện máy dọc: chọn Menu item đến Activity Description.**
-![menu fragment 2](/Images/menu_fragment_2.jpg)
-![menu fragment 3](/Images/menu_fragment_3.jpg)
+![menu fragment 2](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_fragment_2.jpg)
+![menu fragment 3](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_fragment_3.jpg)
 
 **Giao diện máy ngang: hiện cả Menu lẫn Description**
-![menu fragment 4](/Images/menu_fragment_4.jpg)
+![menu fragment 4](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_fragment_4.jpg)
 
 ## Bước 1: tạo fragmentA, hiển thị List
 
