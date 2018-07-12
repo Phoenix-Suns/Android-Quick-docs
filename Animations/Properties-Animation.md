@@ -114,6 +114,7 @@ res/anim/filename.xml
 ```java
 // Load hiệu ứng
     final Animation amin = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+
     // Sự kiện
     amin.setAnimationListener(new Animation.AnimationListener() {
         @Override  public void onAnimationStart(Animation animation) {
@@ -126,8 +127,12 @@ res/anim/filename.xml
 
     // Chạy hiệu ứng
     txtMessage.startAnimation(amin);
+
+    // Hủy hiệu ứng
+    txtMessage.clearAnimation();
 ```
 ---
 **Trích dẫn:**
-http://www.androidhive.info/2013/06/android-working-with-xml-animations/
-http://developer.android.com/guide/topics/resources/animation-resource.html
+* http://www.androidhive.info/2013/06/android-working-with-xml-animations/
+* http://developer.android.com/guide/topics/resources/animation-resource.html
+* https://developer.android.com/guide/topics/graphics/prop-animation
