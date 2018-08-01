@@ -118,18 +118,27 @@ public class CustomButton extends RelativeLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // Height: Wrap_Content
+        // Wrap_Content
+
         int height = 0;
+        //int width = 0;
         for(int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
-            child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+            child.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+
             int h = child.getMeasuredHeight();
+            //int w = child.getMeasuredWidth();
+
             if(h > height) height = h;
+            //if(w > width) width = w;
         }
 
         if (height != 0) {
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
         }
+        /*if (width != 0) {
+            widthMeasureSpec = MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY);
+        }*/
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
