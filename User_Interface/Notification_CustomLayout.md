@@ -11,7 +11,7 @@ Tạo giao diện notification qua XML layout file.
 
 <!-- /TOC -->
 
- ![image 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/notification_custom_1.jpg)
+ ![image 1](/Images/notification_custom_1.jpg)
 
 ## Bước 1: Tạo giao diện Notification: layout/custom_notification.xml
 

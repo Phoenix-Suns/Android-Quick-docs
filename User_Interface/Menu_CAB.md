@@ -19,7 +19,7 @@ Vẫn khởi tại xml menu: menu/menu_context.xml
 
 ## Nhấn Button hiện Menu.
 
-![async task 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_cab_1.jpg)
+![async task 1](/Images/menu_cab_1.jpg)
 
 ```java
 private ActionMode mActionMode;
@@ -86,7 +86,7 @@ private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
 
 ## Nhấn giữ ListView Item hiện Menu
 
-![async task 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_cab_2.jpg)
+![async task 1](/Images/menu_cab_2.jpg)
 
 ### Bước 1: Tạo XML menu: menu/menu_content.xml
 
@@ -169,7 +169,7 @@ private void setListViewEvents() {
 
 ## Đếm Item chọn trong ListView
 
-![async task 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/menu_cab_3.jpg)
+![async task 1](/Images/menu_cab_3.jpg)
 
 ### Lặp lại bước 1, 2, 3
 

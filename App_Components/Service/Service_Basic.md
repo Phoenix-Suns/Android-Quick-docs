@@ -33,7 +33,7 @@
 ```
 
 ### Vòng đời:
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/service_lifecycle.png](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/service_lifecycle.png)
+![/Images/service_lifecycle.png](/Images/service_lifecycle.png)
 
 
 1. Component (Activity) bắt đầu Service: startService()

@@ -1,6 +1,6 @@
 # Notification – Thông báo trên Status Bar
 
- ![async task 1](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/notification_basic_1.jpg)
+ ![async task 1](/Images/notification_basic_1.jpg)
 
  ```java
  public static final String EXTRA_KEY_NUMBER = "EXTRA KEY NUMBER";

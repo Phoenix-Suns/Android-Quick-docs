@@ -30,7 +30,7 @@
 
 ```
 ### Vòng đời
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/activity_lifecycle.png](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/activity_lifecycle.png)
+![/Images/activity_lifecycle.png](/Images/activity_lifecycle.png)
 
 
 #### Ghi nhớ: 

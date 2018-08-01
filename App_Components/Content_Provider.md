@@ -1,6 +1,6 @@
 # Content Providers – Lưu trữ nội dung, dữ liệu
 
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content_provider.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content_provider.jpg)
+![/Images/content_provider.jpg](/Images/content_provider.jpg)
 
 <!-- TOC -->
 
@@ -375,8 +375,8 @@ public class AppProvider extends ContentProvider {
 }
 ```
 
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content-provider-1-225x300.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content-provider-1-225x300.jpg)
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content-provider-2-225x300.jpg](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/content-provider-2-225x300.jpg)
+![/Images/content-provider-1-225x300.jpg](/Images/content-provider-1-225x300.jpg)
+![/Images/content-provider-2-225x300.jpg](/Images/content-provider-2-225x300.jpg)
 
 ### Bước 5: Test, chạy thử kiểm tra
 

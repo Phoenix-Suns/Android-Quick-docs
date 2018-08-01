@@ -1,6 +1,6 @@
 # View Animation – Hiệu ứng cơ bản – Chuyển hoạt
 
-![./Images/animation-1.png](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/animation-1.png)
+![./Images/animation-1.png](/Images/animation-1.png)
 
 ### Vị trí File XML:
 res/anim/filename.xml
@@ -9,7 +9,7 @@ res/anim/filename.xml
 * In Java: R.anim.filename 
 * In XML: @[package:]anim/filename
 
-![https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/animation-2.png](https://github.com/luunghiatran/Android-Quick-docs/blob/master/Images/animation-2.png)
+![/Images/animation-2.png](/Images/animation-2.png)
 ## Thuộc tính chung:
 * android:fillAfter=”true” – Giữ trạng thái sau khi chạy (trong <set>)
 * android:fillBefore=”true” – Giữ trạng thái trước khi chạy
