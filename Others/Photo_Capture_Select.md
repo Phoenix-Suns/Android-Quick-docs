@@ -34,31 +34,35 @@
 private Uri mUriImage;  //Lưu thông tin Ảnh
 // =============== Có thể tạo trong File Helper ==========
 private boolean saveImage() {
-    boolean result = false;
+    boolean result;
+    String imagePath = genImagePath(this);  //AppConfig
 
     try {
         // Save file
         // Lấy ảnh resize + save
-        InputStream input = getContentResolver().openInputStream(mUriImage);
 
-        // Tạo tên Ứng dụng trong thẻ nhớ
-        String dirPath = Environment.getExternalStorageDirectory() + "/"
-                + getApplicationInfo().loadLabel(getPackageManager());
-        String filePath = dirPath + "/File_Name"+new Date().getTime() + ".png";
+        result = makeFileDirectory(imagePath);  //FileUtil.
+        if (result) {
 
-        makeFileDirectory(filePath);    //FileUtil
+            InputStream input = getContentResolver().openInputStream(mUriImage);
+            FileOutputStream output = new FileOutputStream(imagePath);
 
-        FileOutputStream output = new FileOutputStream(filePath);
-        result = writeStream(input, output);    //FileUtil
-
-        //create Uri again
-        mUriImage = Uri.fromFile(new File(filePath));
-
+            result = writeStream(input, output);    //FileUtil
+        }
     } catch (Exception ex){
-        Log.e("e", ex.getMessage());
+        Log.e(AppConfig.APP_LOG_TAG, ex.getMessage());
         result = false;
     }
+
+    mUriImage = Uri.fromFile(new File(imagePath));
     return result;
+}
+
+// Tạo file, với thư mục là tên ứng dụng
+public static String genImagePath(Context context) {
+    String dirPath = Environment.getExternalStorageDirectory() + "/"
+            + context.getApplicationInfo().loadLabel(context.getPackageManager());
+    return FileUtil.makeFilePathByTime(dirPath, "avatar", "jpg");
 }
 
 // Tạo Thư mục
