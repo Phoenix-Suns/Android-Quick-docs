@@ -15,6 +15,7 @@ http://square.github.io/retrofit/
         - [POST JSON BODY](#post-json-body)
         - [POST FORM DATA](#post-form-data)
         - [POST FORM IMAGE](#post-form-image)
+        - [Download Image](#download-image)
     - [Gợi ý Sắp Xếp File](#gợi-ý-sắp-xếp-file)
 
 <!-- /TOC -->
@@ -74,17 +75,17 @@ call.enqueue(new Callback<UserDetailModel>() {
     public void onResponse(Call<UserDetailModel> call, Response<UserDetailModel> response) {
         if (response.body() != null) {
             // Success
-            //response.body()
+            UserDetailModel value = response.body();
         }else {
             // Error
-            //response.raw().message()
+            String error = response.raw().message();
         }
     }
 
     @Override
     public void onFailure(Call<UserDetailModel> call, Throwable t) {
         // Error
-        //t.getMessage()
+        String error = t.getMessage();
     }
 });
 ```
@@ -162,6 +163,59 @@ MultipartBody.Part mpAvatar = MultipartBody.Part.createFormData("image", fAvatar
 return service.ChangeAvatar(rbUserId, mpAvatar);
 ```
 
+### Download Image
+
+```java
+private void downloadImage() {
+    OkHttpClient client = new OkHttpClient();
+
+    Request request = new Request.Builder()
+            .url("http://wwwns.akamai.com/media_resources/globe_emea.png")
+            .build();
+
+    client.newCall(request).enqueue(new okhttp3.Callback() {
+        @Override
+        public void onFailure(okhttp3.Call call, IOException e) {
+            String error = "Error " + e.getMessage();
+            Toast.makeText(MainActivity.this, error, Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
+            String filePath = Environment.getExternalStorageDirectory().getPath() + "/file_name.png";
+
+            InputStream inputStream = response.body().byteStream(); // Read the data from the stream
+            OutputStream outputStream = new FileOutputStream(filePath);
+            writeStream(inputStream, outputStream); //FileUtil
+
+            MainActivity.this.runOnUiThread(() -> Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_LONG).show());
+        }
+    });
+}
+
+public static boolean writeStream(InputStream input, OutputStream output){
+    try {
+        // Chuyển byte từ Input => Output
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = input.read(buffer)) > 0) {
+            output.write(buffer, 0, length);
+        }
+
+        // Close the streams
+        output.flush();
+        output.close();
+        input.close();
+        return true;
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return false;
+}
+```
+
+
 ## Gợi ý Sắp Xếp File
 
 - network
@@ -198,7 +252,8 @@ public class WSConfig {
     public static int STATUS_SUCCESS = 1;
     public static int STATUS_ERROR = 0;
 
-    public static final String WS_DOMAIN = "http://iwantoutsource.com/heineken_maps/";
+    public static final String WS_DOMAIN = "http://domain.com/api/";
+    public static final String WS_DOMAIN_MEDIA = "http://domain.com/api/image/";
 
     // End of URL Path: ws_domain + endpoint
     public static final String ENDPOINT_ALL_OUTLET = "location/location_data";

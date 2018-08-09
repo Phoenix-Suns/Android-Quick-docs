@@ -7,6 +7,7 @@
         - [Vị trí file:](#vị-trí-file)
         - [Lớp sử dụng:](#lớp-sử-dụng)
         - [Sử dụng:](#sử-dụng)
+        - [Dùng trong Activity](#dùng-trong-activity)
 
 <!-- /TOC -->
 
@@ -97,6 +98,29 @@ Cú pháp:
 *   alphabeticShortcut | numericShortcut : phím tắt
 *   menuCategory
 *   orderInCategory: thứ tự trên menu
+
+### Dùng trong Activity
+
+```java
+// Khởi tạo Menu
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.activity_main, menu);
+    return super.onCreateOptionsMenu(menu);
+}
+
+// Select on Menu
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case R.id.action_download: 
+            // Action
+        break;
+    }
+
+    return super.onOptionsItemSelected(item);
+}
+```
 
 ---
 Tham khảo:

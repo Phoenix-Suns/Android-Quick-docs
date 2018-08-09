@@ -29,10 +29,11 @@ CompositeDisposable mCompositeDisposable = new CompositeDisposable();   //Quản
 Cài đặt retrofit
 
 ```java
-// Interface
+// Tạo Interface
 @GET("users/{username}")
 Observable<UserDetailModel> getGitHubUserDetail(@Path("username") String userName);
 
+// === Using ====
 Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://api.github.com/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
