@@ -8,6 +8,7 @@
         - [Sử dụng](#sử-dụng)
         - [Truy cập Setting của ứng dụng](#truy-cập-setting-của-ứng-dụng)
     - [Nhận Cho phép từ User](#nhận-cho-phép-từ-user)
+    - [Thư viện: Dexter](#thư-viện-dexter)
 
 <!-- /TOC -->
 
@@ -100,4 +101,29 @@ public void onRequestPermissionsResult(int requestCode,
         // permissions this app might request.
     }
 }
+```
+
+## Thư viện: Dexter
+https://github.com/Karumi/Dexter
+
+```java
+final String[] APP_PERMISSIONS = new String[]{
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+};
+
+Dexter.withActivity(this)
+    .withPermissions(APP_PERMISSIONS)
+    .withListener(new MultiplePermissionsListener() {
+        @Override
+        public void onPermissionsChecked(MultiplePermissionsReport report) {
+            // Nếu đã grant vẫn vào 
+        }
+
+        @Override
+        public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+
+        }
+})
+.check();
 ```

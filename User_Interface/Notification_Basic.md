@@ -54,11 +54,15 @@ Phải thêm thư viện: android.support.v4+
 
 ```java
 void runNotifyCompat(View v){
+	
+	final NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+	createNotificationChannel(manager);
+
 	//---Cài đặt giao diện ---
-	NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(getBaseContext())
+	NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(getBaseContext(), "NOTIFICATION_CHANNEL_ID")
 		.setContentTitle("You alway Smile") //phai co
 		.setContentText("This is the voice of HCM city!")
-		.setSmallIcon(R.mipmap.ic_abc) //phai co
+		.setSmallIcon(R.mipmap.ic_abc) //phai co, 24x24
 		.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_abc))
 		.setAutoCancel(true) //Ẩn khi User click
 		.setOngoing(true) //Không cho User hủy
@@ -81,7 +85,6 @@ void runNotifyCompat(View v){
 	notifiBuilder.setContentIntent(resultPendingIntent);
 	
 	//--- Hiển thị Notification ---
-	final NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 	manager.notify(MY_NOTIFY_ID, notifiBuilder.build());
 
 // lấy Dữ liệu từ Intent của Notification từ Activity khác
@@ -98,6 +101,17 @@ public void cancelNotifiCompat(View v){
 public void runServiceNotification(View v) {
 	Intent i = new Intent(getBaseContext(), ProgressService.class);
 	startService(i);
+}
+
+private void createNotificationChannel(NotificationManager manager) {
+	if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+		NotificationChannel channel = new NotificationChannel(
+				"NOTIFICATION_CHANNEL_ID",
+				"YOUR_CHANNEL_NAME",
+				NotificationManager.IMPORTANCE_DEFAULT);
+		channel.setDescription("YOUR_NOTIFICATION_CHANNEL_DESCRIPTION");
+		manager.createNotificationChannel(channel);
+	}
 }
 ```
 
