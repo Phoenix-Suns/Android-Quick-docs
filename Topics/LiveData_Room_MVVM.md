@@ -13,8 +13,8 @@ project Gradle file
 // build.gradle (Project: <your_app>)
 allprojects {
     repositories {
+        google()
         jcenter()
-       google()
     }
 }
 ext {
