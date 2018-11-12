@@ -2,13 +2,13 @@
 
 <!-- TOC -->
 
-- [Drawable Resource - tài nguyên ảnh](#drawable-resource---t%C3%A0i-nguy%C3%AAn-%E1%BA%A3nh)
-        - [Định nghĩa:](#%C4%91%E1%BB%8Bnh-ngh%C4%A9a)
-        - [Vị trí file: **res/drawable/filename.png**](#v%E1%BB%8B-tr%C3%AD-file-resdrawablefilenamepng)
-        - [Gọi sử dụng:](#g%E1%BB%8Di-s%E1%BB%AD-d%E1%BB%A5ng)
-        - [Phân loại](#ph%C3%A2n-lo%E1%BA%A1i)
+- [Drawable Resource - tài nguyên ảnh](#drawable-resource---tài-nguyên-ảnh)
+        - [Định nghĩa:](#định-nghĩa)
+        - [Vị trí file: **res/drawable/filename.png**](#vị-trí-file-resdrawablefilenamepng)
+        - [Gọi sử dụng:](#gọi-sử-dụng)
+        - [Phân loại](#phân-loại)
             - [Bitmap File](#bitmap-file)
-        - [Nine-Patch File](#nine-patch-file)
+        - [Nine-Patch File](#nine-patch file)
         - [Layer List](#layer-list)
         - [State List](#state-list)
         - [Level List](#level-list)
@@ -89,6 +89,11 @@ R.drawable.ic_add_48dp));
         android:right="dimension"
         android:bottom="dimension"
         android:left="dimension" />
+
+    <item android:top="10dp" android:left="10dp">
+      <bitmap android:src="@drawable/android_green"
+        android:gravity="center" />
+    </item>
 </layer-list>
 ```
 

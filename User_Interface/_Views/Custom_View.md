@@ -54,7 +54,7 @@ Vòng đời 1 View
 </LinearLayout>
 ```
 
-#### Tạo 1 file chứa thuộc tính của View: atrrs_custom_button.xml
+#### Tạo 1 file chứa thuộc tính của View: values/atrrs_custom_button.xml
 
 ```xml
 <resources>
