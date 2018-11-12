@@ -33,24 +33,25 @@ Vòng đời 1 View
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
+
     <ImageView
         android:id="@+id/customButton_image"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:src="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_delete"
         android:scaleType="fitXY"
         android:background="#fff" />
     <TextView
         android:id="@+id/customButton_text"
         android:textColor="#000"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="..."
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text=""
         android:textStyle="bold"
         android:gravity="center_horizontal" />
+
 </LinearLayout>
 ```
 
@@ -118,20 +119,25 @@ public class CustomButton extends RelativeLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-       // Wrap_Content
-
+        // Wrap_Content
         int height = 0;
+        int width = 0;
         for(int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
             child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
 
             int h = child.getMeasuredHeight();
+            int w = child.getMeasuredWidth();
 
             if(h > height) height = h;
+            if(w > width) width = w;
         }
 
         if (height != 0) {
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
+        }
+        if (width != 0) {
+            widthMeasureSpec = MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY);
         }
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
