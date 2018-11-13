@@ -10,6 +10,7 @@ lifecycle-aware observable data holder. Quan sát thay đổi, tự update lên 
         - [File View Model](#file-view-model)
         - [Update Date trên Android Component (Activity)](#update-date-trên-android-component-activity)
     - [Lắng nghe qua Các FRAGMENT](#lắng-nghe-qua-các-fragment)
+    - [Simple Kotlin](#simple-kotlin)
 
 <!-- /TOC -->
 
@@ -154,6 +155,49 @@ public class MasterFragment extends Fragment implements MasterAdapter.OnItemClic
            }
        });
    }
+}
+```
+
+## Simple Kotlin
+
+```java
+// https://medium.com/rocknnull/exploring-kotlin-using-android-architecture-components-and-vice-versa-aa16e600041a
+class MainActivity : AppCompatActivity() {
+    val TAG = MainActivity::class.java.name
+
+
+    private lateinit var viewModel: NameViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        /* Called on Activity onCreate() */
+        viewModel = ViewModelProviders.of(this).get(NameViewModel::class.java)
+        viewModel.getUsername().observe(this, Observer { text ->
+            Log.e(TAG, text)
+        })
+
+        /*  Called if there is no active network request */
+        viewModel.initNetworkRequest()
+    }
+
+    fun goListUser (view: View) {
+        startActivity(Intent(this, ListUserActivity::class.java))
+    }
+}
+
+class NameViewModel : ViewModel() {
+    private val username = MutableLiveData<String>()
+
+    fun initNetworkRequest() {
+        /* expensive operation, e.g. network request */
+        username.value = "Peter"
+    }
+
+    fun getUsername(): LiveData<String> {
+        return username
+    }
 }
 ```
 
