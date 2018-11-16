@@ -91,6 +91,7 @@ Dexter.withActivity(this)
 ## Glide - Thư viện load ảnh Online
 
 https://github.com/bumptech/glide
+https://github.com/codepath/android_guides/wiki/Displaying-Images-with-the-Glide-Library
 
 ### Download Image
 
