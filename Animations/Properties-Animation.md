@@ -2,6 +2,21 @@
 
 ![./Images/animation-1.png](/Images/animation-1.png)
 
+<!-- TOC -->
+
+- [View Animation – Hiệu ứng cơ bản – Chuyển hoạt](#view-animation--hiệu-ứng-cơ-bản--chuyển-hoạt)
+        - [Vị trí File XML:](#vị-trí-file-xml)
+        - [Resource reference (tên gọi):](#resource-reference-tên-gọi)
+    - [Thuộc tính chung:](#thuộc-tính-chung)
+        - [Alpha Animation (Độ trong suốt):](#alpha-animation-độ-trong-suốt)
+        - [Rotate Animation (Độ xoay):](#rotate-animation-độ-xoay)
+        - [Scale Animation (Độ co dãn):](#scale-animation-độ-co-dãn)
+        - [Translate Animation (Độ đi chuyển):](#translate-animation-độ-đi-chuyển)
+        - [Set/Batch Animation (nhiều hiệu ứng):](#setbatch-animation-nhiều-hiệu-ứng)
+        - [Gọi trong Code: onCreate Activity](#gọi-trong-code-oncreate-activity)
+
+<!-- /TOC -->
+
 ### Vị trí File XML:
 res/anim/filename.xml
 
@@ -19,7 +34,7 @@ res/anim/filename.xml
 * android:repeatCount – Lần lặp
 * infinite – lặp vô hạn
 * android:interpolator – (nội suy) kiểu chạy
-    * @android:anim/ accelerate_decelerate_interpolator – Tăng tốc, giảm tốc
+    * @android:anim/accelerate_decelerate_interpolator – Tăng tốc, giảm tốc
     * @android:anim/accelerate_interpolator – Tăng tốc
     * @android:anim/anticipate_interpolator – (Biết trước) quay lên vị trí đầu, chạy tiếp
     * @android:anim/anticipate_overshoot_interpolator – (Biết trước_Vượt qua) quay lên vị trí đầu, vượt qua vị trí cuối

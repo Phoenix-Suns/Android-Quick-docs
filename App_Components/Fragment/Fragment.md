@@ -1,14 +1,6 @@
 # Fragment - Mảnh, phần giao diện - Phân đoạn
 
-<!-- TOC -->
-
-- [Fragment - Mảnh, phần giao diện - Phân đoạn](#fragment---mảnh-phần-giao-diện---phân-đoạn)
-    - [Fragment là gì](#fragment-là-gì)
-        - [Vòng đời, quy trình tồn tại:](#vòng-đời-quy-trình-tồn-tại)
-        - [Template - Code mẫu](#template---code-mẫu)
-        - [Xử lý Fragment trong Activity](#xử-lý-fragment-trong-activity)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [Fragment - Mảnh, phần giao diện - Phân đoạn](#fragment---mảnh-phần-giao-diện---phân-đoạn)auto    - [Fragment là gì](#fragment-là-gì)auto        - [Vòng đời, quy trình tồn tại:](#vòng-đời-quy-trình-tồn-tại)auto        - [Template - Code mẫu](#template---code-mẫu)auto        - [Xử lý Fragment trong Activity](#xử-lý-fragment-trong-activity)autoauto<!-- /TOC -->
 
 ## Fragment là gì
 
@@ -142,12 +134,13 @@ transaction.commit();
 
 ```java
 // Thêm Fragment vào View(fragment_container)
+// Nếu thêm nữa thì sẽ hiện cả 2, không Pause Fragment cũ
 MyFragment fragment = new MyFragment();
 transaction.add(R.id.fragment_container, fragment, "fragment_tag");
 
 // Xóa Fragment
 transaction.remove(fragment);
-// Thay thế Fagment hiện tại = fragment = remove + add
+// Thay thế Fagment hiện tại = fragment = remove + add (Pause fragment cũ)
 transaction.replace(R.id.fragment_container, fragment, "fragment_tag");
 
 // giống Remove, không đính kèm, còn lưu trạng thái (TAG)
