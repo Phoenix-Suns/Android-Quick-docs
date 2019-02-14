@@ -1,14 +1,6 @@
 # RxJava RxAndroid - Kiểm Soát Thread, đa luồng nhanh gọn
 
-<!-- TOC -->
-
-- [RxJava RxAndroid - Kiểm Soát Thread, đa luồng nhanh gọn](#rxjava-rxandroid---kiểm-soát-thread-đa-luồng-nhanh-gọn)
-    - [Tạo Lớp Quản lý Description của Rx](#tạo-lớp-quản-lý-description-của-rx)
-    - [Simple RxJava & Retrofit](#simple-rxjava--retrofit)
-    - [2 Request đồng thời](#2-request-đồng-thời)
-    - [2 Request Tuần tự, xong rồi tiếp](#2-request-tuần-tự-xong-rồi-tiếp)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [RxJava RxAndroid - Kiểm Soát Thread, đa luồng nhanh gọn](#rxjava-rxandroid---kiểm-soát-thread-đa-luồng-nhanh-gọn)auto    - [Tạo Lớp Quản lý Description của Rx](#tạo-lớp-quản-lý-description-của-rx)auto    - [Simple RxJava & Retrofit](#simple-rxjava--retrofit)auto    - [2 Request đồng thời](#2-request-đồng-thời)auto    - [2 Request Tuần tự, xong rồi tiếp](#2-request-tuần-tự-xong-rồi-tiếp)autoauto<!-- /TOC -->
 
 ## Tạo Lớp Quản lý Description của Rx
 
@@ -82,6 +74,27 @@ private void retrofit_2API_RunSameTime(GithubWS githubService) {
         @Override
         public void onComplete() {
             Log.e(TAG_LOG, "complete");
+        }
+    });
+}
+
+//https://viblo.asia/p/zip-va-merge-trong-rxjava-924lJM80ZPM
+// ở đây trong hàm onNext() chúng ta thấy RxJava trả về "từng phần tử"
+private void mergeList() {
+    Observable.merge(createListObservable()).subscribe(new Subscriber<Object>() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+
+        }
+
+        @Override
+        public void onNext(Object o) {
+            txtMergeList.setText(txtMergeList.getText() + " " +  o);
         }
     });
 }
