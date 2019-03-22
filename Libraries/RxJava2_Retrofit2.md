@@ -98,6 +98,32 @@ private void mergeList() {
         }
     });
 }
+
+// kotlin
+// Make List Disposable
+val listDisposable = ArrayList<Observable<BaseRespond<EmptyResponse>>>()
+for (i in 0 until listNotification.size) {
+    val disposable = RetrofitManager.service.deleteNotification(listNotification[i].id)
+    listDisposable.add(disposable)
+}
+
+val merge = Observable.merge(listDisposable)
+        .compose(SchedulerUtils.ioToMain())
+        .subscribe({ result ->
+            // onNext
+            if(result.code == UrlHelper.CODE_SUCCESS) {
+                // add success
+            } else {
+                // add error
+            }
+
+        }, { error ->
+
+        }, {
+            // Complete
+        })
+
+addSubscription(merge)
 ```
 
 ## 2 Request Tuần tự, xong rồi tiếp
