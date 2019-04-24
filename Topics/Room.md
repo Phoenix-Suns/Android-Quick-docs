@@ -1,18 +1,6 @@
 # Room - SQLite Database Handle
 
-<!-- TOC -->
-
-- [Room - SQLite Database Handle](#room---sqlite-database-handle)
-    - [Step by Step Setup](#step-by-step-setup)
-        - [1. Update gradle File](#1-update-gradle-file)
-        - [2. Khởi tạo App Database:](#2-khởi-tạo-app-database)
-        - [3. Khởi tạo Table Note](#3-khởi-tạo-table-note)
-        - [4. Tạo Note DAO (Data Access Object)](#4-tạo-note-dao-data-access-object)
-        - [5. Sử dụng Hàm Trên UI](#5-sử-dụng-hàm-trên-ui)
-            - [Chạy thông qua Task](#chạy-thông-qua-task)
-            - [Test Trên UI](#test-trên-ui)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [Room - SQLite Database Handle](#room---sqlite-database-handle)auto    - [Step by Step Setup](#step-by-step-setup)auto        - [1. Update gradle File](#1-update-gradle-file)auto        - [2. Khởi tạo App Database:](#2-khởi-tạo-app-database)auto        - [3. Khởi tạo Table Note](#3-khởi-tạo-table-note)auto        - [4. Tạo Note DAO (Data Access Object)](#4-tạo-note-dao-data-access-object)auto        - [5. Sử dụng Hàm Trên UI](#5-sử-dụng-hàm-trên-ui)auto            - [Chạy thông qua Task](#chạy-thông-qua-task)auto            - [Test Trên UI](#test-trên-ui)autoauto<!-- /TOC -->
 
 ## Step by Step Setup
 
@@ -20,14 +8,17 @@
 
 ```json
 ====== build.gradle (Module: app) ========
-// Room components
-implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
-annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
-androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+dependencies {
+    //...
+    // Room components
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
 
-// Lifecycle components
-implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
-annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+    // Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+}
 
 ======== build.gradle (Project: ProjectName) =========
 ext {
