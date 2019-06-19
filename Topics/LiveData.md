@@ -2,17 +2,7 @@
 
 lifecycle-aware observable data holder. Quan sát thay đổi, tự update lên giao diện
 
-<!-- TOC -->
-
-- [LiveData - Data Gắn liền với Android Component Life Cycle](#livedata---data-gắn-liền-với-android-component-life-cycle)
-    - [Setup Step By Step](#setup-step-by-step)
-        - [Setup](#setup)
-        - [File View Model](#file-view-model)
-        - [Update Date trên Android Component (Activity)](#update-date-trên-android-component-activity)
-    - [Lắng nghe qua Các FRAGMENT](#lắng-nghe-qua-các-fragment)
-    - [Simple Kotlin](#simple-kotlin)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [LiveData - Data Gắn liền với Android Component Life Cycle](#livedata---data-gắn-liền-với-android-component-life-cycle)auto    - [Setup Step By Step](#setup-step-by-step)auto        - [Setup](#setup)auto        - [File View Model](#file-view-model)auto        - [Update Date trên Android Component (Activity)](#update-date-trên-android-component-activity)auto    - [Lắng nghe qua Các FRAGMENT](#lắng-nghe-qua-các-fragment)auto    - [Simple Kotlin](#simple-kotlin)autoauto<!-- /TOC -->
 
 ## Setup Step By Step
 
@@ -165,7 +155,6 @@ public class MasterFragment extends Fragment implements MasterAdapter.OnItemClic
 class MainActivity : AppCompatActivity() {
     val TAG = MainActivity::class.java.name
 
-
     private lateinit var viewModel: NameViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -180,10 +169,6 @@ class MainActivity : AppCompatActivity() {
 
         /*  Called if there is no active network request */
         viewModel.initNetworkRequest()
-    }
-
-    fun goListUser (view: View) {
-        startActivity(Intent(this, ListUserActivity::class.java))
     }
 }
 
