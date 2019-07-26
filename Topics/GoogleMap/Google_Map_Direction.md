@@ -1,5 +1,12 @@
 # Dẫn đường trong Google Map
 
+- [Dẫn đường trong Google Map](#d%e1%ba%abn-%c4%91%c6%b0%e1%bb%9dng-trong-google-map)
+  - [Step 1: Create GGMap WebService](#step-1-create-ggmap-webservice)
+  - [Step 2: Một số hàm hỗ trợ](#step-2-m%e1%bb%99t-s%e1%bb%91-h%c3%a0m-h%e1%bb%97-tr%e1%bb%a3)
+  - [Step 3: Bắt đầu điều hướng](#step-3-b%e1%ba%aft-%c4%91%e1%ba%a7u-%c4%91i%e1%bb%81u-h%c6%b0%e1%bb%9bng)
+
+## Step 1: Create GGMap WebService
+
 ```java
 public class MapWSBase {
     private static Retrofit retrofit = null;
@@ -45,62 +52,7 @@ public class GoogleMapWS extends MapWSBase {
 }
 ```
 
-**--- USING ---**
-
-```java
-
-LatLng fromLatLng ...
-LatLng toLatLng ...
-
-Call<MapDirectionWSResult> call = new GoogleMapWS().getDirection(fromLatLng, toLatLng);
-call.enqueue(new Callback<MapDirectionWSResult>() {
-    @Override
-    public void onResponse(Call<MapDirectionWSResult> call, Response<MapDirectionWSResult> response) {
-        if (response.body() != null) {
-            // Success
-            drawDirection(response.body());
-
-        }else {
-            // Error
-            updateUIError(response.raw().message());
-        }
-    }
-
-    @Override
-    public void onFailure(Call<MapDirectionWSResult> call, Throwable t) {
-        updateUIError(t.getMessage());
-    }
-});
-
-private void drawDirection(MapDirectionWSResult result) {
-    ArrayList<LatLng> points = toLatLngPoints(result);  //MapDirectionHelper.
-
-    int directionColor = Color.rgb(100,178,250);
-    PolylineOptions lineOptions = new PolylineOptions()
-            .width(15)
-            .color(directionColor)
-            .addAll(points);
-    Polyline line = mMap.addPolyline(lineOptions);
-    mListPolylineDirection.add(line);
-
-    moveMapCamera(getContext(), mMap, null, mHeadMarker.getPosition(), mLatLngOutlet);  //MapHelper.
-
-
-    // Draw Marker direction
-    MarkerOptions markerOptions = new MarkerOptions()
-            .flat(true) // Lie on map
-            .anchor(0.5f, 0.5f) // Lie center marker
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_head));
-    Marker startPoint = mMap.addMarker(markerOptions.position(points.get(0)));
-    Marker endPoint = mMap.addMarker(markerOptions.position(points.get(points.size()-1)));
-    mListMarkerDirection.add(startPoint);
-    mListMarkerDirection.add(endPoint);
-}
-
-private void updateUIError(String message) {
-    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-}
-```
+## Step 2: Một số hàm hỗ trợ
 
 ```java
 /* ========= Support Function ========== */
@@ -224,3 +176,67 @@ public static List<LatLng> decodePoly(String encoded) {
     return poly;
 }
 ```
+
+## Step 3: Bắt đầu điều hướng
+
+```java
+void startDirection() {
+    LatLng fromLatLng ...
+    LatLng toLatLng ...
+
+    Call<MapDirectionWSResult> call = new GoogleMapWS().getDirection(fromLatLng, toLatLng);
+    call.enqueue(new Callback<MapDirectionWSResult>() {
+        @Override
+        public void onResponse(Call<MapDirectionWSResult> call, Response<MapDirectionWSResult> response) {
+            if (response.body() != null) {
+                // Success
+                drawDirection(response.body());
+
+            }else {
+                // Error
+                updateUIError(response.raw().message());
+            }
+        }
+
+        @Override
+        public void onFailure(Call<MapDirectionWSResult> call, Throwable t) {
+            updateUIError(t.getMessage());
+        }
+    });
+}
+
+private void drawDirection(MapDirectionWSResult result) {
+    ArrayList<LatLng> points = toLatLngPoints(result);  //MapDirectionHelper.
+
+    int directionColor = Color.rgb(100,178,250);
+    PolylineOptions lineOptions = new PolylineOptions()
+            .width(15)
+            .color(directionColor)
+            .addAll(points);
+    Polyline line = mMap.addPolyline(lineOptions);
+    mListPolylineDirection.add(line);
+
+    moveMapCamera(getContext(), mMap, null, mHeadMarker.getPosition(), mLatLngOutlet);  //MapHelper.
+
+
+    // Draw Marker direction
+    MarkerOptions markerOptions = new MarkerOptions()
+            .flat(true) // Lie on map
+            .anchor(0.5f, 0.5f) // Lie center marker
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_head));
+    Marker startPoint = mMap.addMarker(markerOptions.position(points.get(0)));
+    Marker endPoint = mMap.addMarker(markerOptions.position(points.get(points.size()-1)));
+    mListMarkerDirection.add(startPoint);
+    mListMarkerDirection.add(endPoint);
+}
+
+private void updateUIError(String message) {
+    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+}
+```
+
+---
+
+**References:**
+
+- <http://jeffreysambells.com/2010/05/27/decoding-polylines-from-google-maps-direction-api-with-java>
