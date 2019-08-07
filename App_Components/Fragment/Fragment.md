@@ -1,6 +1,10 @@
 # Fragment - Mảnh, phần giao diện - Phân đoạn
 
-<!-- TOC -->autoauto- [Fragment - Mảnh, phần giao diện - Phân đoạn](#fragment---mảnh-phần-giao-diện---phân-đoạn)auto    - [Fragment là gì](#fragment-là-gì)auto        - [Vòng đời, quy trình tồn tại:](#vòng-đời-quy-trình-tồn-tại)auto        - [Template - Code mẫu](#template---code-mẫu)auto        - [Xử lý Fragment trong Activity](#xử-lý-fragment-trong-activity)autoauto<!-- /TOC -->
+- [Fragment - Mảnh, phần giao diện - Phân đoạn](#fragment---m%e1%ba%a3nh-ph%e1%ba%a7n-giao-di%e1%bb%87n---ph%c3%a2n-%c4%91o%e1%ba%a1n)
+	- [Fragment là gì](#fragment-l%c3%a0-g%c3%ac)
+		- [Vòng đời, quy trình tồn tại:](#v%c3%b2ng-%c4%91%e1%bb%9di-quy-tr%c3%acnh-t%e1%bb%93n-t%e1%ba%a1i)
+		- [Template - Code mẫu](#template---code-m%e1%ba%abu)
+		- [Xử lý Fragment trong Activity](#x%e1%bb%ad-l%c3%bd-fragment-trong-activity)
 
 ## Fragment là gì
 
