@@ -2,16 +2,16 @@
 
 <!-- TOC -->
 
-- [Services – Xử lý tiến trình chạy nền](#services--xử-lý-tiến-trình-chạy-nền)
-        - [Service là gì?](#service-là-gì)
-        - [Khai báo trong Mainifresh:](#khai-báo-trong-mainifresh)
-        - [Vòng đời:](#vòng-đời)
-        - [Service template - Mẫu:](#service-template---mẫu)
-        - [Khởi động Service:](#khởi-động-service)
-        - [Dừng Service:](#dừng-service)
-    - [Nhận kết quả Service trả về qua Receiver:](#nhận-kết-quả-service-trả-về-qua-receiver)
-        - [Trực tiếp trong Service:](#trực-tiếp-trong-service)
-        - [Gián tiếp qua Receiver:](#gián-tiếp-qua-receiver)
+- [Services – Xử lý tiến trình chạy nền](#services-%e2%80%93-x%e1%bb%ad-l%c3%bd-ti%e1%ba%bfn-tr%c3%acnh-ch%e1%ba%a1y-n%e1%bb%81n)
+    - [Service là gì?](#service-l%c3%a0-g%c3%ac)
+    - [Khai báo trong Mainifresh:](#khai-b%c3%a1o-trong-mainifresh)
+    - [Vòng đời:](#v%c3%b2ng-%c4%91%e1%bb%9di)
+    - [Service template - Code Mẫu:](#service-template---code-m%e1%ba%abu)
+    - [Khởi động Service:](#kh%e1%bb%9fi-%c4%91%e1%bb%99ng-service)
+    - [Dừng Service:](#d%e1%bb%abng-service)
+  - [Nhận kết quả Service trả về qua Receiver:](#nh%e1%ba%adn-k%e1%ba%bft-qu%e1%ba%a3-service-tr%e1%ba%a3-v%e1%bb%81-qua-receiver)
+    - [Trực tiếp trong Service:](#tr%e1%bb%b1c-ti%e1%ba%bfp-trong-service)
+    - [Gián tiếp qua Receiver:](#gi%c3%a1n-ti%e1%ba%bfp-qua-receiver)
 
 <!-- /TOC -->
 
@@ -102,6 +102,8 @@ public class MusicService extends Service {
 
         // run player
         player.start();
+
+        stopForeground(false)   // Destroy app will detroy Service
 
         return START_STICKY;
     }
