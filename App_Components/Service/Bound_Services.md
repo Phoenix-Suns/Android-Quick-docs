@@ -2,14 +2,15 @@
 
 <!-- TOC -->
 
-- [Bound Service – lấy kết quả liên tục](#bound-service--lấy-kết-quả-liên-tục)
-        - [Bound Service là gì?](#bound-service-là-gì)
-        - [Bound Service Template - Code Mẫu:](#bound-service-template---code-mẫu)
-        - [Gọi trong Component khác (ví dụ: Activity):](#gọi-trong-component-khác-ví-dụ-activity)
-    - [Sử dụng Messager để tương tác](#sử-dụng-messager-để-tương-tác)
-        - [Cách sử dụng:](#cách-sử-dụng)
-        - [Template - Code mẫu:](#template---code-mẫu)
-        - [Activity sử dụng:](#activity-sử-dụng)
+- [Bound Service – lấy kết quả liên tục](#bound-service-%e2%80%93-l%e1%ba%a5y-k%e1%ba%bft-qu%e1%ba%a3-li%c3%aan-t%e1%bb%a5c)
+    - [Bound Service là gì?](#bound-service-l%c3%a0-g%c3%ac)
+    - [Bound Service Template - Code Mẫu:](#bound-service-template---code-m%e1%ba%abu)
+    - [Gọi trong Component khác (ví dụ: Activity):](#g%e1%bb%8di-trong-component-kh%c3%a1c-v%c3%ad-d%e1%bb%a5-activity)
+    - [Cheat - Gọi onStartCommand chung với onBind](#cheat---g%e1%bb%8di-onstartcommand-chung-v%e1%bb%9bi-onbind)
+  - [Sử dụng Messager để tương tác](#s%e1%bb%ad-d%e1%bb%a5ng-messager-%c4%91%e1%bb%83-t%c6%b0%c6%a1ng-t%c3%a1c)
+    - [Cách sử dụng:](#c%c3%a1ch-s%e1%bb%ad-d%e1%bb%a5ng)
+    - [Template - Code mẫu:](#template---code-m%e1%ba%abu)
+    - [Activity sử dụng:](#activity-s%e1%bb%ad-d%e1%bb%a5ng)
 
 <!-- /TOC -->
 
@@ -133,6 +134,22 @@ public class MainActivity extends Activity {
         }
     }
 }
+```
+
+### Cheat - Gọi onStartCommand chung với onBind
+
+```js
+// https://stackoverflow.com/questions/44425584/context-startforegroundservice-did-not-then-call-service-startforeground/53286232#53286232
+applicationContext.bindService(this, object : ServiceConnection {
+    override fun onServiceConnected(name: ComponentName, binder: IBinder) {
+        if (binder is MusicBinder) {
+            val service = binder.service
+            service?.onStartCommand(this@apply, 0, 0)
+            service?.forceForeground()
+        }
+    }
+    override fun onServiceDisconnected(name: ComponentName) {}
+}, Context.BIND_AUTO_CREATE)
 ```
 
 ## Sử dụng Messager để tương tác
