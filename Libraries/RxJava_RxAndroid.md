@@ -6,7 +6,7 @@ https://github.com/ReactiveX/RxJava
 
 ```java
 Completable.fromAction(() ->
-        db.pictureDAO().insert(arrPictures)
+    db.pictureDAO().insert(arrPictures)
 ).andThen(Observable.just("OK"));   
 ``` 
 

@@ -1,6 +1,11 @@
 # Notification – Thông báo trên Status Bar
 
- ![async task 1](/Images/notification_basic_1.jpg)
+- [Notification – Thông báo trên Status Bar](#notification-%e2%80%93-th%c3%b4ng-b%c3%a1o-tr%c3%aan-status-bar)
+	- [Simple Example](#simple-example)
+
+## Simple Example
+
+![async task 1](/Images/notification_basic_1.jpg)
 
  ```java
  public static final String EXTRA_KEY_NUMBER = "EXTRA KEY NUMBER";
@@ -207,3 +212,71 @@ public class ProgressService extends Service
 	}
 }
 ```
+
+## Notification Channel (android O)
+
+```java
+// Simple Version
+// @RequiresApi(Build.VERSION_CODES.O)
+private fun bindingForegroundNotification() {
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+		val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+		val name = resources.getString(R.string.app_name)
+		val importance = NotificationManager.IMPORTANCE_LOW
+		NotificationChannel(CHANNEL_ID, name, importance).apply {
+			enableLights(false)
+			enableVibration(false)
+			notificationManager.createNotificationChannel(this)
+		}
+	}
+	notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
+			.setContentTitle(resources.getString(R.string.app_name))
+			.setContentText("")
+			.setSmallIcon(R.drawable.ic_headset_small)
+	startForeground(NOTIFICATION_ID, notification?.build())
+}
+```
+
+```java
+val intent = Intent(this, MainActivity::class.java)
+	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+	val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+	val channelId = getString(R.string.app_name)
+	val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+	val notificationBuilder = NotificationCompat.Builder(this, channelId)
+			.setSmallIcon(R.drawable.ic_launcher_background)
+			.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_launcher_background))
+			.setContentTitle(getString(R.string.project_id))
+			.setContentText(messageBody)
+			.setAutoCancel(true)
+			.setSound(defaultSoundUri)
+			.setContentIntent(pendingIntent)
+			.setDefaults(Notification.DEFAULT_ALL)
+			.setPriority(NotificationManager.IMPORTANCE_HIGH)
+			.addAction(NotificationCompat.Action(
+				android.R.drawable.sym_call_missed,
+				"Cancel",
+				PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT)))
+			.addAction(NotificationCompat.Action(
+				android.R.drawable.sym_call_outgoing,
+				"OK",
+				PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT)))
+
+	val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+	// Since android Oreo notification channel is needed.
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+		val channel = NotificationChannel(
+			channelId,
+			"Channel human readable title",
+			NotificationManager.IMPORTANCE_DEFAULT)
+
+		notificationManager.createNotificationChannel(channel)
+	}
+
+	notificationManager.notify(0, notificationBuilder.build())
+```
+
+---

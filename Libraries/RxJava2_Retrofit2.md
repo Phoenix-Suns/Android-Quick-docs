@@ -1,6 +1,11 @@
 # RxJava RxAndroid - Kiểm Soát Thread, đa luồng nhanh gọn
 
-<!-- TOC -->autoauto- [RxJava RxAndroid - Kiểm Soát Thread, đa luồng nhanh gọn](#rxjava-rxandroid---kiểm-soát-thread-đa-luồng-nhanh-gọn)auto    - [Tạo Lớp Quản lý Description của Rx](#tạo-lớp-quản-lý-description-của-rx)auto    - [Simple RxJava & Retrofit](#simple-rxjava--retrofit)auto    - [2 Request đồng thời](#2-request-đồng-thời)auto    - [2 Request Tuần tự, xong rồi tiếp](#2-request-tuần-tự-xong-rồi-tiếp)autoauto<!-- /TOC -->
+- [RxJava RxAndroid - Kiểm Soát Thread, đa luồng nhanh gọn](#rxjava-rxandroid---ki%e1%bb%83m-so%c3%a1t-thread-%c4%91a-lu%e1%bb%93ng-nhanh-g%e1%bb%8dn)
+  - [Tạo Lớp Quản lý Description của Rx](#t%e1%ba%a1o-l%e1%bb%9bp-qu%e1%ba%a3n-l%c3%bd-description-c%e1%bb%a7a-rx)
+  - [Simple RxJava & Retrofit](#simple-rxjava--retrofit)
+  - [2 Request đồng thời](#2-request-%c4%91%e1%bb%93ng-th%e1%bb%9di)
+  - [2 Request Tuần tự, xong rồi tiếp](#2-request-tu%e1%ba%a7n-t%e1%bb%b1-xong-r%e1%bb%93i-ti%e1%ba%bfp)
+  - [Tham Khảo](#tham-kh%e1%ba%a3o)
 
 ## Tạo Lớp Quản lý Description của Rx
 
@@ -158,6 +163,6 @@ private void retrofit_2API_Sequentially(GithubWS githubService) {
 
 ---
 
-**Tham Khảo**
+## Tham Khảo
 
-* http://reactivex.io/documentation/operators.html#creating
+- <http://reactivex.io/documentation/operators.html#creating>

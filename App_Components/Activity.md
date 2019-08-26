@@ -2,13 +2,14 @@
 
 <!-- TOC -->
 
-- [Activity – Màn hình hiển thị, tương tác (giống 1 cửa sổ)](#activity--màn-hình-hiển-thị-tương-tác-giống-1-cửa-sổ)
-        - [Khai báo tồn tại trong Mainifesh:](#khai-báo-tồn-tại-trong-mainifesh)
-        - [Vòng đời](#vòng-đời)
-            - [Ghi nhớ:](#ghi-nhớ)
-        - [Khởi động Activity trong Component(Activity khác):](#khởi-động-activity-trong-componentactivity-khác)
-        - [Mở Activity Lấy kết quả trả về:](#mở-activity-lấy-kết-quả-trả-về)
-        - [Mở Activity Dạng Dialog (cửa sổ):](#mở-activity-dạng-dialog-cửa-sổ)
+- [Activity – Màn hình hiển thị, tương tác (giống 1 cửa sổ)](#activity-%e2%80%93-m%c3%a0n-h%c3%acnh-hi%e1%bb%83n-th%e1%bb%8b-t%c6%b0%c6%a1ng-t%c3%a1c-gi%e1%bb%91ng-1-c%e1%bb%ada-s%e1%bb%95)
+		- [Khai báo tồn tại trong Mainifesh:](#khai-b%c3%a1o-t%e1%bb%93n-t%e1%ba%a1i-trong-mainifesh)
+		- [Vòng đời](#v%c3%b2ng-%c4%91%e1%bb%9di)
+			- [Ghi nhớ:](#ghi-nh%e1%bb%9b)
+		- [Khởi động Activity trong Component(Activity khác):](#kh%e1%bb%9fi-%c4%91%e1%bb%99ng-activity-trong-componentactivity-kh%c3%a1c)
+			- [1 số LauchMode (chế độ mở Activity) trong Manifesh](#1-s%e1%bb%91-lauchmode-ch%e1%ba%bf-%c4%91%e1%bb%99-m%e1%bb%9f-activity-trong-manifesh)
+		- [Mở Activity Lấy kết quả trả về:](#m%e1%bb%9f-activity-l%e1%ba%a5y-k%e1%ba%bft-qu%e1%ba%a3-tr%e1%ba%a3-v%e1%bb%81)
+		- [Mở Activity Dạng Dialog (cửa sổ):](#m%e1%bb%9f-activity-d%e1%ba%a1ng-dialog-c%e1%bb%ada-s%e1%bb%95)
 
 <!-- /TOC -->
 
@@ -44,8 +45,15 @@
 Intent intent = new Intent(this, SignInActivity.class);
 // đặt thông tin Cần chuyển vào Intent
 startActivity(intent);
-
 ```
+
+#### 1 số LauchMode (chế độ mở Activity) trong Manifesh
+
+- Standard: nhiều Activity tồn tại (khởi tạo nhiều lần)
+- SingleTop: nhiều Activity tồn tại (khởi tạo nhiều lần). Nếu Activity đã khởi tạo ở trên cùng, chỉ gọi hàm onNewIntent. Nếu không trên cùng thì khởi tạo lại.
+- SingleTask: Chỉ 1 Activity tồn tại. Nếu Activity đã khởi tạo, destroy các Activity sau nó.
+- singleInstance: Chỉ 1 Activity tồn tại, Activity chạy Task khác. Nếu Activity đã khởi tạo, sẽ nhảy lên trên.
+
 ### Mở Activity Lấy kết quả trả về:
 ```java
 private int REQUEST_CODE_PICK_CONTACT = 200;

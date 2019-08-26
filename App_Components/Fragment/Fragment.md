@@ -78,8 +78,8 @@ public class MyFragment extends Fragment {
 		super.onViewCreated(view, savedInstanceState);
 
 		/***************************************
-                TODO: BẮT ĐẦU KHỞI TẠO, MUỐN LÀM GÌ LÀM
-                *****************************************/
+		TODO: BẮT ĐẦU KHỞI TẠO, MUỐN LÀM GÌ LÀM
+		*****************************************/
 	}
 
 	@Override
