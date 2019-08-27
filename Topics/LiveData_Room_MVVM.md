@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
 
             String text = data.getStringExtra(AddNoteActivity.EXTRA_NOTE);
             Note note = new Note(data.getStringExtra(AddNoteActivity.EXTRA_NOTE));
-            
+
             // Insert, Update DATA => update UI
             mNoteViewModel.insert(note);
 
@@ -253,8 +253,10 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ---
-**Tham Khảo**
-- https://codelabs.developers.google.com/codelabs/android-training-livedata-viewmodel/index.html?index=..%2F..%2Fandroid-training#10
-- https://developer.android.com/jetpack/docs/guide#best-practices
-- https://developer.android.com/reference/android/arch/lifecycle/ViewModel
-- https://developer.android.com/topic/libraries/architecture/livedata
+
+## Tham Khảo
+
+- <https://codelabs.developers.google.com/codelabs/android-training-livedata-viewmodel/index.html?index=..%2F..%2Fandroid-training#10>
+- <https://developer.android.com/jetpack/docs/guide#best-practices>
+- <https://developer.android.com/reference/android/arch/lifecycle/ViewModel>
+- <https://developer.android.com/topic/libraries/architecture/livedata>

@@ -1,5 +1,11 @@
 # Deep Link: Open app when Open Link
 
+- [Deep Link: Open app when Open Link](#deep-link-open-app-when-open-link)
+  - [Simple Start](#simple-start)
+    - [Step 1: Create Intent in Manifesh file](#step-1-create-intent-in-manifesh-file)
+    - [Step 2: Catch link on Activity](#step-2-catch-link-on-activity)
+  - [Reference](#reference)
+
 ## Simple Start
 
 ### Step 1: Create Intent in Manifesh file
@@ -64,13 +70,13 @@ class ReceiveURLActivity : AppCompatActivity() {
                     "tin-tuc" -> {
                         uidStr?.let {
                             val news = News().apply { this.uid = it.toInt() }
-                            AppNavigation.startNewsDetail(this, news)
+                            // Start Activity
                         }
                     }
                     "video" -> {
                         uidStr?.let {
                             val video = Videos().apply { this.uid = it.toInt() }
-                            AppNavigation.startVideoPlayer(this, video)
+                            // Start Activity
                         }
                     }
                 }
@@ -84,7 +90,7 @@ class ReceiveURLActivity : AppCompatActivity() {
 
 ---
 
-**Reference**
+## Reference
 
 - <https://developer.android.com/training/app-links/deep-linking.html>
 - <https://developer.android.com/studio/write/app-link-indexing>

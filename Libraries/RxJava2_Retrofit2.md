@@ -4,7 +4,10 @@
   - [Tạo Lớp Quản lý Description của Rx](#t%e1%ba%a1o-l%e1%bb%9bp-qu%e1%ba%a3n-l%c3%bd-description-c%e1%bb%a7a-rx)
   - [Simple RxJava & Retrofit](#simple-rxjava--retrofit)
   - [2 Request đồng thời](#2-request-%c4%91%e1%bb%93ng-th%e1%bb%9di)
+    - [Zip](#zip)
+    - [Merge](#merge)
   - [2 Request Tuần tự, xong rồi tiếp](#2-request-tu%e1%ba%a7n-t%e1%bb%b1-xong-r%e1%bb%93i-ti%e1%ba%bfp)
+    - [flatMap](#flatmap)
   - [Tham Khảo](#tham-kh%e1%ba%a3o)
 
 ## Tạo Lớp Quản lý Description của Rx
@@ -50,6 +53,8 @@ mCompositeDisposable.add(dis);
 
 ## 2 Request đồng thời
 
+### Zip
+
 ```java
 private void retrofit_2API_RunSameTime(GithubWS githubService) {
     Observable<UserDetailModel> api_1 = githubService.getGitHubUserDetail("ahmedrizwan").subscribeOn(Schedulers.newThread())            .observeOn(AndroidSchedulers.mainThread());
@@ -82,7 +87,11 @@ private void retrofit_2API_RunSameTime(GithubWS githubService) {
         }
     });
 }
+```
 
+### Merge
+
+```java
 //https://viblo.asia/p/zip-va-merge-trong-rxjava-924lJM80ZPM
 // ở đây trong hàm onNext() chúng ta thấy RxJava trả về "từng phần tử"
 private void mergeList() {
@@ -113,7 +122,7 @@ for (i in 0 until listNotification.size) {
 }
 
 val merge = Observable.merge(listDisposable)
-        .compose(SchedulerUtils.ioToMain())
+        .subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
         .subscribe({ result ->
             // onNext
             if(result.code == UrlHelper.CODE_SUCCESS) {
@@ -133,29 +142,31 @@ addSubscription(merge)
 
 ## 2 Request Tuần tự, xong rồi tiếp
 
+### flatMap
+
 ```java
 private void retrofit_2API_Sequentially(GithubWS githubService) {
     //================== 2 Retrofit: Tuần tự ====================
     Disposable dis = githubService.getAllUser().subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
-            .flatMap(response -> {  // Trả về ListUser
-                
-                // Call 1, DoSomething, Call 2
-                Log.e(TAG_LOG, "Nhận 1: " + response.size());
-                return githubService.getGitHubUserDetail("ahmedrizwan").subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
-            }).flatMap(response2 -> {   // Trả về UserDetail của "ahmedrizwan"
-                
-                // Call 2, DoSomething, Call 3
-                Log.e(TAG_LOG, "Nhận 2: " + response2.getAvatarUrl());
-                return githubService.getGitHubUserDetail("luunghiatran").subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
-            })
-            .subscribe(response3 -> { // trả về UserDetail của "luunghiatran"
-                // Call 3, Finish
-                Log.e(TAG_LOG, "Nhận 3: " + response3.getAvatarUrl());
-            },
-            error -> {
-                Log.e(TAG_LOG, "Cancel loading");
-                Log.e(TAG_LOG, "Error: " + error.getMessage());
-            });
+        .flatMap(response -> {  // Trả về ListUser
+
+            // Call 1, DoSomething, Call 2
+            Log.e(TAG_LOG, "Nhận 1: " + response.size());
+            return githubService.getGitHubUserDetail("ahmedrizwan").subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
+        }).flatMap(response2 -> {   // Trả về UserDetail của "ahmedrizwan"
+
+            // Call 2, DoSomething, Call 3
+            Log.e(TAG_LOG, "Nhận 2: " + response2.getAvatarUrl());
+            return githubService.getGitHubUserDetail("luunghiatran").subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
+        })
+        .subscribe(response3 -> { // trả về UserDetail của "luunghiatran"
+            // Call 3, Finish
+            Log.e(TAG_LOG, "Nhận 3: " + response3.getAvatarUrl());
+        },
+        error -> {
+            Log.e(TAG_LOG, "Cancel loading");
+            Log.e(TAG_LOG, "Error: " + error.getMessage());
+        });
 
     mCompositeDisposable.add(dis);
 }
