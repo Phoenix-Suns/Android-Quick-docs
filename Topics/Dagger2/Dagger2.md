@@ -11,6 +11,7 @@ Tránh khởi tạo đối tượng trong 1 đối tượng.
   - [Tiêm Pet vào Activity](#ti%c3%aam-pet-v%c3%a0o-activity)
     - [Không dùng Anotation (@Inject)](#kh%c3%b4ng-d%c3%b9ng-anotation-inject)
     - [Dùng Anotation (inject) - tiêm qua Application](#d%c3%b9ng-anotation-inject---ti%c3%aam-qua-application)
+  - [Lưu ý tự tạo hàm](#l%c6%b0u-%c3%bd-t%e1%bb%b1-t%e1%ba%a1o-h%c3%a0m)
   - [Tham khảo](#tham-kh%e1%ba%a3o)
 
 ## Cài đặt
@@ -72,6 +73,8 @@ public class Person {
 - @Providers : cho các phương thức bên trong các lớp @Module.
 - @Component : là cầu nối interface giữa các modules và injection.
 - @Inject : để yêu cầu một sự phụ thuộc ( một hàm khởi tạo, một trường, hoặc một phương thức).
+
+- @Singleton: Chỉ khởi tạo 1 lần
 
 ## Tiêm Pet vào Activity
 
@@ -180,6 +183,31 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     Log.e(TAG, pet.name); // Dog
+}
+```
+
+## Lưu ý tự tạo hàm
+
+- Tự tạo: providerName(providerAge()). Chỉ duy nhất 1 fun trả về 1 loại object
+- sẽ tự tìm hàm: providerName khi gọi: ```@Inject lateinit var age123: String``` (log = "123456")
+- @Inject: String ~= providerName(providerAge: Int): String
+
+```java
+@Module
+public class PetModule {
+    //...
+
+    @Provides
+    @Singleton
+    internal fun providerName(nghia: Int): String {
+        return nghia.toString()
+    }
+
+    @Provides
+    @Singleton
+    internal fun providerAge(): Int {
+        return 123456
+    }
 }
 ```
 
