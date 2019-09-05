@@ -4,16 +4,16 @@
 
 <!-- TOC -->
 
-- [View Animation – Hiệu ứng cơ bản – Chuyển hoạt](#view-animation--hiệu-ứng-cơ-bản--chuyển-hoạt)
-        - [Vị trí File XML:](#vị-trí-file-xml)
-        - [Resource reference (tên gọi):](#resource-reference-tên-gọi)
-    - [Thuộc tính chung:](#thuộc-tính-chung)
-        - [Alpha Animation (Độ trong suốt):](#alpha-animation-độ-trong-suốt)
-        - [Rotate Animation (Độ xoay):](#rotate-animation-độ-xoay)
-        - [Scale Animation (Độ co dãn):](#scale-animation-độ-co-dãn)
-        - [Translate Animation (Độ đi chuyển):](#translate-animation-độ-đi-chuyển)
-        - [Set/Batch Animation (nhiều hiệu ứng):](#setbatch-animation-nhiều-hiệu-ứng)
-        - [Gọi trong Code: onCreate Activity](#gọi-trong-code-oncreate-activity)
+- [View Animation – Hiệu ứng cơ bản – Chuyển hoạt](#view-animation-%e2%80%93-hi%e1%bb%87u-%e1%bb%a9ng-c%c6%a1-b%e1%ba%a3n-%e2%80%93-chuy%e1%bb%83n-ho%e1%ba%a1t)
+    - [Vị trí File XML:](#v%e1%bb%8b-tr%c3%ad-file-xml)
+    - [Resource reference (tên gọi):](#resource-reference-t%c3%aan-g%e1%bb%8di)
+  - [Thuộc tính chung](#thu%e1%bb%99c-t%c3%adnh-chung)
+    - [Alpha Animation (Độ trong suốt)](#alpha-animation-%c4%90%e1%bb%99-trong-su%e1%bb%91t)
+    - [Rotate Animation (Độ xoay)](#rotate-animation-%c4%90%e1%bb%99-xoay)
+    - [Scale Animation (Độ co dãn)](#scale-animation-%c4%90%e1%bb%99-co-d%c3%a3n)
+    - [Translate Animation (Độ đi chuyển)](#translate-animation-%c4%90%e1%bb%99-%c4%91i-chuy%e1%bb%83n)
+    - [Set/Batch Animation (nhiều hiệu ứng)](#setbatch-animation-nhi%e1%bb%81u-hi%e1%bb%87u-%e1%bb%a9ng)
+    - [Gọi trong Code: onCreate Activity](#g%e1%bb%8di-trong-code-oncreate-activity)
 
 <!-- /TOC -->
 
@@ -25,32 +25,32 @@ res/anim/filename.xml
 * In XML: @[package:]anim/filename
 
 ![/Images/animation-2.png](/Images/animation-2.png)
-## Thuộc tính chung:
-* android:fillAfter=”true” – Giữ trạng thái sau khi chạy (trong <set>)
-* android:fillBefore=”true” – Giữ trạng thái trước khi chạy
-* android:duration – Thời gian chạy
-* android:startOffset – Thời gian chờ trước khi chạy
-* android:repeatMode – Chế độ lặp
-* android:repeatCount – Lần lặp
-* infinite – lặp vô hạn
-* android:interpolator – (nội suy) kiểu chạy
-    * @android:anim/accelerate_decelerate_interpolator – Tăng tốc, giảm tốc
-    * @android:anim/accelerate_interpolator – Tăng tốc
-    * @android:anim/anticipate_interpolator – (Biết trước) quay lên vị trí đầu, chạy tiếp
-    * @android:anim/anticipate_overshoot_interpolator – (Biết trước_Vượt qua) quay lên vị trí đầu, vượt qua vị trí cuối
-    * @android:anim/bounce_interpolator – (nẩy lên) nẩy lên ở vị trí cuối
-    * @android:anim/cycle_interpolator – (Vòng tròn) chạy qua lại đầu, cuối
-    * @android:anim/decelerate_interpolator – (Giảm tốc) Chậm dần
-    * @android:anim/linear_interpolator – (Thẳng) đều đều
-    * @android:anim/overshoot_interpolator – (Vượt qua) vượt qua vị trí cuối
-    * @android:anim/fade_in
-    * @android:anim/fade_out
-    * @android:anim/slide_in_left – Chạy từ trái qua
-    * @android:anim/slide_out_right – Chạy từ phải rồi mất
 
+## Thuộc tính chung
 
+- android:fillAfter=”true” – Giữ trạng thái sau khi chạy (trong ```<set>```)
+- android:fillBefore=”true” – Giữ trạng thái trước khi chạy
+- android:duration – Thời gian chạy
+- android:startOffset – Thời gian chờ trước khi chạy
+- android:repeatMode – Chế độ lặp
+- android:repeatCount – Lần lặp
+- infinite – lặp vô hạn
+- android:interpolator – (nội suy) kiểu chạy
+  - @android:anim/accelerate_decelerate_interpolator – Tăng tốc, giảm tốc
+  - @android:anim/accelerate_interpolator – Tăng tốc
+  - @android:anim/anticipate_interpolator – (Biết trước) quay lên vị trí đầu, chạy tiếp
+  - @android:anim/anticipate_overshoot_interpolator – (Biết trước_Vượt qua) quay lên vị trí đầu, vượt qua vị trí cuối
+  - @android:anim/bounce_interpolator – (nẩy lên) nẩy lên ở vị trí cuối
+  - @android:anim/cycle_interpolator – (Vòng tròn) chạy qua lại đầu, cuối
+  - @android:anim/decelerate_interpolator – (Giảm tốc) Chậm dần
+  - @android:anim/linear_interpolator – (Thẳng) đều đều
+  - @android:anim/overshoot_interpolator – (Vượt qua) vượt qua vị trí cuối
+  - @android:anim/fade_in
+  - @android:anim/fade_out
+  - @android:anim/slide_in_left – Chạy từ trái qua
+  - @android:anim/slide_out_right – Chạy từ phải rồi mất
 
-### Alpha Animation (Độ trong suốt):
+### Alpha Animation (Độ trong suốt)
 
 ```xml
 <set ... android:fillAfter="true" >
@@ -61,7 +61,9 @@ res/anim/filename.xml
         android:toAlpha="1.0" />
 </set>
 ```
-### Rotate Animation (Độ xoay):
+
+### Rotate Animation (Độ xoay)
+
 ```xml
     <rotate
         android:duration="3000"
@@ -70,7 +72,9 @@ res/anim/filename.xml
         android:pivotY="50%"
         android:toDegrees="360"/>
 ```
-### Scale Animation (Độ co dãn):
+
+### Scale Animation (Độ co dãn)
+
 ```xml
     <scale
          android:duration="3000"
@@ -81,7 +85,9 @@ res/anim/filename.xml
          android:toXScale="2"
          android:toyScale="2" />
 ```
-### Translate Animation (Độ đi chuyển):
+
+### Translate Animation (Độ đi chuyển)
+
 ```xml
     <translate
         android:duration="3000"
@@ -91,7 +97,8 @@ res/anim/filename.xml
         android:toYDelta="0%" />
 ```
 
-### Set/Batch Animation (nhiều hiệu ứng):
+### Set/Batch Animation (nhiều hiệu ứng)
+
 **Chạy đồng thời:**
 
 ```xml
@@ -123,9 +130,11 @@ res/anim/filename.xml
             android:toydelta="0%" />
     </set>
 ```
-**Chạy hàng đợi:** <set ... android:startOffset=”thời gian”/>
+
+**Chạy hàng đợi:** ```<set ... android:startOffset=”thời gian”/>```
 
 ### Gọi trong Code: onCreate Activity
+
 ```java
 // Load hiệu ứng
     final Animation amin = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
@@ -146,8 +155,10 @@ res/anim/filename.xml
     // Hủy hiệu ứng
     txtMessage.clearAnimation();
 ```
+
 ---
 **Trích dẫn:**
-* http://www.androidhive.info/2013/06/android-working-with-xml-animations/
-* http://developer.android.com/guide/topics/resources/animation-resource.html
-* https://developer.android.com/guide/topics/graphics/prop-animation
+
+- <http://www.androidhive.info/2013/06/android-working-with-xml-animations>
+- <http://developer.android.com/guide/topics/resources/animation-resource.html>
+- <https://developer.android.com/guide/topics/graphics/prop-animation>
