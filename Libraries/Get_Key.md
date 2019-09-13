@@ -19,3 +19,14 @@ Get SHA1 from Android studio.
 - Click on Android
 - Double Click on signingReport (You will get SHA1 and MD5 in Run Bar(Sometimes it will be in Gradle Console))
 - Select app module from module selection dropdown to run or debug your application   You also need to get google-services.json from firebase console and put into your project.
+
+## Add Facebook Key Hashes
+
+<https://developers.facebook.com/apps/662544150908042/settings/basic/>
+
+662544150908042: Project Id
+
+## Create Key for Google Signin Debug
+
+- <https://console.developers.google.com/apis/credentials>
+- Create Credentials > OAuth client ID (type: Web application)

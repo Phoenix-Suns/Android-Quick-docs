@@ -2,7 +2,12 @@
 
 lifecycle-aware observable data holder. Quan sát thay đổi, tự update lên giao diện
 
-<!-- TOC -->autoauto- [LiveData - Data Gắn liền với Android Component Life Cycle](#livedata---data-gắn-liền-với-android-component-life-cycle)auto    - [Setup Step By Step](#setup-step-by-step)auto        - [Setup](#setup)auto        - [File View Model](#file-view-model)auto        - [Update Date trên Android Component (Activity)](#update-date-trên-android-component-activity)auto    - [Lắng nghe qua Các FRAGMENT](#lắng-nghe-qua-các-fragment)auto    - [Simple Kotlin](#simple-kotlin)autoauto<!-- /TOC -->
+- [LiveData - Data Gắn liền với Android Component Life Cycle](#livedata---data-g%e1%ba%afn-li%e1%bb%81n-v%e1%bb%9bi-android-component-life-cycle)
+  - [Setup Step By Step](#setup-step-by-step)
+    - [Setup](#setup)
+    - [File View Model](#file-view-model)
+    - [Update Date trên Android Component (Activity)](#update-date-tr%c3%aan-android-component-activity)
+  - [Lắng nghe qua Các FRAGMENT](#l%e1%ba%afng-nghe-qua-c%c3%a1c-fragment)
 
 ## Setup Step By Step
 
@@ -145,44 +150,6 @@ public class MasterFragment extends Fragment implements MasterAdapter.OnItemClic
            }
        });
    }
-}
-```
-
-## Simple Kotlin
-
-```java
-// https://medium.com/rocknnull/exploring-kotlin-using-android-architecture-components-and-vice-versa-aa16e600041a
-class MainActivity : AppCompatActivity() {
-    val TAG = MainActivity::class.java.name
-
-    private lateinit var viewModel: NameViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        /* Called on Activity onCreate() */
-        viewModel = ViewModelProviders.of(this).get(NameViewModel::class.java)
-        viewModel.getUsername().observe(this, Observer { text ->
-            Log.e(TAG, text)
-        })
-
-        /*  Called if there is no active network request */
-        viewModel.initNetworkRequest()
-    }
-}
-
-class NameViewModel : ViewModel() {
-    private val username = MutableLiveData<String>()
-
-    fun initNetworkRequest() {
-        /* expensive operation, e.g. network request */
-        username.value = "Peter"
-    }
-
-    fun getUsername(): LiveData<String> {
-        return username
-    }
 }
 ```
 
