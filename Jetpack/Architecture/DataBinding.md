@@ -3,12 +3,13 @@
 - [Data Binding: hiển thị giao diện XML theo Data](#data-binding-hi%e1%bb%83n-th%e1%bb%8b-giao-di%e1%bb%87n-xml-theo-data)
   - [Cài đặt](#c%c3%a0i-%c4%91%e1%ba%b7t)
   - [Sử dụng](#s%e1%bb%ad-d%e1%bb%a5ng)
-    - [Sử dụng cơ bản](#s%e1%bb%ad-d%e1%bb%a5ng-c%c6%a1-b%e1%ba%a3n)
-    - [Sử dụng với ViewModel](#s%e1%bb%ad-d%e1%bb%a5ng-v%e1%bb%9bi-viewmodel)
+    - [Sử dụng trong Activity](#s%e1%bb%ad-d%e1%bb%a5ng-trong-activity)
+    - [Trong Activity với ViewModel](#trong-activity-v%e1%bb%9bi-viewmodel)
     - [Sử dụng trong Fragment](#s%e1%bb%ad-d%e1%bb%a5ng-trong-fragment)
     - [Sử dụng trong RecyclerView](#s%e1%bb%ad-d%e1%bb%a5ng-trong-recyclerview)
   - [1 số thao tác trong View](#1-s%e1%bb%91-thao-t%c3%a1c-trong-view)
   - [BindingAdapter: Tạo thuộc tính mới cho View](#bindingadapter-t%e1%ba%a1o-thu%e1%bb%99c-t%c3%adnh-m%e1%bb%9bi-cho-view)
+  - [Common Errors](#common-errors)
   - [Tham khảo](#tham-kh%e1%ba%a3o)
 
 ## Cài đặt
@@ -25,17 +26,15 @@ android { //...
 
 ## Sử dụng
 
-### Sử dụng cơ bản
+### Sử dụng trong Activity
 
 - Activity
 
 ```java
 override fun onCreate() {
-    // Thay
-    setContentView(R.layout.plain_activity)
-    // Bằng
-    val binding : PlainActivityBinding =
-        DataBindingUtil.setContentView(this, R.layout.plain_activity)
+    // setContentView(R.layout.plain_activity)
+    // (plain_activity.xml = PlainActivityBinding)
+    val binding : PlainActivityBinding = DataBindingUtil.setContentView(this, R.layout.plain_activity)
 
     // Đặt dữ liệu
     binding.name = "Your name"
@@ -69,19 +68,25 @@ override fun onCreate() {
     android:text="@{lastName}"/>
 ```
 
-### Sử dụng với ViewModel
+### Trong Activity với ViewModel
 
 - Activity
 
 ```java
-override fun onCreate() {
-    val binding : PlainActivityBinding =
-        DataBindingUtil.setContentView(this, R.layout.plain_activity)
+private val viewModel by lazy {
+    ViewModelProviders.of(this).get(LikeViewModel::class.java)
+}
 
-    // Đặt dữ liệu
+override fun onCreate() {
+    //(plain_activity.xml = PlainActivityBinding)
+    val binding : PlainActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+    // Gán viewmodel trong xml = viewModel trong Activity
     binding.viewmodel = viewModel
 }
 ```
+
+- Layout: activity_main.xml
 
 ```xml
 <!-- Cài đặt -->
@@ -104,13 +109,64 @@ override fun onCreate() {
 ### Sử dụng trong Fragment
 
 ```java
-fun onCreateView(inflater: LayoutInflater, container: ViewGroup) {
-    val binding = DataBindingUtil.inflate(inflater, R.layout.plain_activity, container, false)
-    //...
+private val viewModel by lazy {
+    ViewModelProviders.of(this).get(LikeViewModel::class.java)
+}
+
+override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+): View? {
+    //return inflater.inflate(R.layout.fragment_like, container, false)
+    // (fragment_like.xml = FragmentLikeBinding)
+    val binding: FragmentLikeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_like, container, false)
+    binding.lifecycleOwner = this
+    binding.viewmodel = viewModel
+    return binding.root
 }
 ```
 
 ### Sử dụng trong RecyclerView
+
+- Hiển thị 1 textView mỗi item
+
+- list_item_my_adapter.xml
+
+```xml
+<data>
+    <variable
+        name="value"
+        type="String" />
+</data>
+```
+
+- Adapter
+
+```java
+class MyAdapter(private val myDataset: Array<String>) :
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+
+    class MyViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        //var textView: TextView = v.findViewById(R.id.textView)
+        // ======= 1 =======
+        val binding: ListItemMyAdapterBinding? = DataBindingUtil.bind(v)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): MyViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_my_adapter, parent, false)
+        return MyViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        // holder.textView.text = myDataset[position]
+        // ======= 2 ==========
+        holder.binding?.value = myDataset[position]
+    }
+
+    override fun getItemCount() = myDataset.size
+}
+```
 
 ## 1 số thao tác trong View
 
@@ -151,6 +207,11 @@ fun setProgress(progressBar: ProgressBar, likes: Int, max: Int) {
     android:max="@{100}"
     app:progressScaled="@{viewmodel.likes}"/>
 ```
+
+## Common Errors
+
+- Type parameter bound for T in fun <T : ViewDataBinding!> inflate(p0: LayoutInflater, p1: Int, p2: ViewGroup?, p3: Boolean): T!
+ is not satisfied: inferred type View? is not a subtype of ViewDataBinding!
 
 ---
 
