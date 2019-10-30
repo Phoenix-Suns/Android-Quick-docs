@@ -3,13 +3,13 @@
 <!-- TOC -->
 
 - [Others Android Libraries](#others-android-libraries)
-    - [Butter Knife - Binding View Library](#butter-knife---binding-view-library)
-        - [Example](#example)
-    - [Dexter - Ask Permission Library](#dexter---ask-permission-library)
-        - [Example](#example-1)
-    - [Glide - Thư viện load ảnh Online](#glide---thư-viện-load-ảnh-online)
-        - [Download Image](#download-image)
-    - [EventBus - Chuyển sự kiện qua lại giữa các Android Component](#eventbus---chuyển-sự-kiện-qua-lại-giữa-các-android-component)
+  - [Butter Knife - Binding View Library](#butter-knife---binding-view-library)
+    - [Example](#example)
+  - [Dexter - Ask Permission Library](#dexter---ask-permission-library)
+    - [Example](#example-1)
+  - [Glide - Thư viện load ảnh Online](#glide---th%c6%b0-vi%e1%bb%87n-load-%e1%ba%a3nh-online)
+    - [Download Image](#download-image)
+  - [EventBus - Chuyển sự kiện qua lại giữa các Android Component](#eventbus---chuy%e1%bb%83n-s%e1%bb%b1-ki%e1%bb%87n-qua-l%e1%ba%a1i-gi%e1%bb%afa-c%c3%a1c-android-component)
 
 <!-- /TOC -->
 
@@ -145,3 +145,5 @@ public void onStop() {
 ```java
 EventBus.getDefault().post(new MessageEvent());
 ```
+
+---

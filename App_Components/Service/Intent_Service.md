@@ -2,10 +2,11 @@
 
 <!-- TOC -->
 
-- [Intent Service – Tự dừng sau khi trả về](#intent-service--tự-dừng-sau-khi-trả-về)
-        - [Intent Service là gì?](#intent-service-là-gì)
-    - [Template - Code mẫu:](#template---code-mẫu)
-    - [Activity gọi:](#activity-gọi)
+- [Intent Service – Tự dừng sau khi trả về](#intent-service-%e2%80%93-t%e1%bb%b1-d%e1%bb%abng-sau-khi-tr%e1%ba%a3-v%e1%bb%81)
+    - [Intent Service là gì?](#intent-service-l%c3%a0-g%c3%ac)
+  - [Template - Code mẫu:](#template---code-m%e1%ba%abu)
+  - [Activity gọi:](#activity-g%e1%bb%8di)
+  - [Tham khảo](#tham-kh%e1%ba%a3o)
 
 <!-- /TOC -->
 
@@ -150,7 +151,10 @@ public class MainActivity extends Activity {
     }
 }
 ```
+
 ---
-**Tham khảo: **
-http://developer.android.com/guide/components/aidl.html
-http://o7planning.org/web/fe/default/vi/document/1162405/huong-dan-lap-trinh-android-service
+
+## Tham khảo
+
+- <http://developer.android.com/guide/components/aidl.html>
+- <http://o7planning.org/web/fe/default/vi/document/1162405/huong-dan-lap-trinh-android-service>

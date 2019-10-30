@@ -1,6 +1,14 @@
 # Room - SQLite Database Handle
 
-<!-- TOC -->autoauto- [Room - SQLite Database Handle](#room---sqlite-database-handle)auto    - [Step by Step Setup](#step-by-step-setup)auto        - [1. Update gradle File](#1-update-gradle-file)auto        - [2. Khởi tạo App Database:](#2-khởi-tạo-app-database)auto        - [3. Khởi tạo Table Note](#3-khởi-tạo-table-note)auto        - [4. Tạo Note DAO (Data Access Object)](#4-tạo-note-dao-data-access-object)auto        - [5. Sử dụng Hàm Trên UI](#5-sử-dụng-hàm-trên-ui)auto            - [Chạy thông qua Task](#chạy-thông-qua-task)auto            - [Test Trên UI](#test-trên-ui)autoauto<!-- /TOC -->
+- [Room - SQLite Database Handle](#room---sqlite-database-handle)
+  - [Step by Step Setup](#step-by-step-setup)
+    - [1. Update gradle File](#1-update-gradle-file)
+    - [2. Khởi tạo App Database:](#2-kh%e1%bb%9fi-t%e1%ba%a1o-app-database)
+    - [3. Khởi tạo Table Note](#3-kh%e1%bb%9fi-t%e1%ba%a1o-table-note)
+    - [4. Tạo Note DAO (Data Access Object)](#4-t%e1%ba%a1o-note-dao-data-access-object)
+    - [5. Sử dụng Hàm Trên UI](#5-s%e1%bb%ad-d%e1%bb%a5ng-h%c3%a0m-tr%c3%aan-ui)
+      - [Chạy thông qua Task](#ch%e1%ba%a1y-th%c3%b4ng-qua-task)
+      - [Test Trên UI](#test-tr%c3%aan-ui)
 
 ## Step by Step Setup
 
@@ -30,6 +38,7 @@ ext {
 ### 2. Khởi tạo App Database:
 
 **Data/AppDatabase.java**
+
 ```java
 @Database(version = DATABASE_VERSION, entities = {
         Note.class  //Khai báo Class Entity
@@ -63,6 +72,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
 ```java
 @Entity(tableName = "note_table")
+//@Entity(primaryKeys = ["id"]) // Multiple Id
 public class Note {
 
     @PrimaryKey(autoGenerate = true)
@@ -103,6 +113,9 @@ public interface NoteDAO {
     @Query("SELECT * from note_table ORDER BY text ASC")
     /*List<Note> getAll();*/
     LiveData<List<Note>> getAll();
+
+    @Query("SELECT * FROM `note_table` WHERE id=:id")
+    fun getById(id: String): List<Note>
 }
 ```
 
