@@ -74,7 +74,7 @@ public class Person {
 - @Component : là cầu nối interface giữa các modules và injection.
 - @Inject : để yêu cầu một sự phụ thuộc ( một hàm khởi tạo, một trường, hoặc một phương thức).
 
-- @Singleton: Chỉ khởi tạo 1 lần
+- @Singleton: Chỉ khởi tạo 1 lần (Gọi lại sẽ lấy biến đã khởi tạo)
 
 ## Tiêm Pet vào Activity
 
