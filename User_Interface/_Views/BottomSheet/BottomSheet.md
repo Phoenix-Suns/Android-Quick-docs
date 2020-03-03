@@ -7,16 +7,17 @@ https://developer.android.com/reference/android/support/design/widget/BottomShee
 
 <!-- TOC -->
 
-- [1. Bottom Sheet - Dialog nhỏ, hiện bên dưới](#1-bottom-sheet---dialog-nhỏ-hiện-bên-dưới)
-    - [1.1. Setup](#11-setup)
-    - [1.2. Bottom Sheet Trong giao diện chính](#12-bottom-sheet-trong-giao-diện-chính)
-        - [1.2.1. MainActivity.xml](#121-mainactivityxml)
-        - [1.2.2. bottom_sheet.xml](#122-bottom_sheetxml)
-        - [1.2.3. MainActivity.java](#123-mainactivityjava)
-        - [1.2.4. CallBack](#124-callback)
-    - [1.3. Bottom Sheet Dialog](#13-bottom-sheet-dialog)
-        - [1.3.1. BottomSheetFragment.java](#131-bottomsheetfragmentjava)
-        - [1.3.2. MainActivity.java: Open Bottom Sheet](#132-mainactivityjava-open-bottom-sheet)
+- [1. Bottom Sheet - Dialog nhỏ, hiện bên dưới](#1-bottom-sheet---dialog-nh%e1%bb%8f-hi%e1%bb%87n-b%c3%aan-d%c6%b0%e1%bb%9bi)
+  - [1.1. Setup](#11-setup)
+  - [1.2. Bottom Sheet Trong giao diện chính](#12-bottom-sheet-trong-giao-di%e1%bb%87n-ch%c3%adnh)
+    - [1.2.1. MainActivity.xml](#121-mainactivityxml)
+    - [1.2.2. bottom_sheet.xml](#122-bottomsheetxml)
+    - [1.2.3. MainActivity.java](#123-mainactivityjava)
+    - [1.2.4. CallBack](#124-callback)
+  - [1.3. Bottom Sheet Dialog](#13-bottom-sheet-dialog)
+    - [1.3.1. BottomSheetFragment.java](#131-bottomsheetfragmentjava)
+    - [1.3.2. MainActivity.java: Open Bottom Sheet](#132-mainactivityjava-open-bottom-sheet)
+  - [Reference](#reference)
 
 <!-- /TOC -->
 
@@ -160,3 +161,10 @@ public void showBottomSheetDialogFragment() {
     bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
 }
 ```
+
+---
+
+## Reference 
+
+- https://stackoverflow.com/questions/35618998/how-to-implement-bottom-sheets-using-new-design-support-library-23-2
+- https://developer.android.com/jetpack/androidx/migrate/artifact-mappings

@@ -2,19 +2,19 @@
 
 <!-- TOC -->
 
-- [Fragment – Mảnh](#fragment--mảnh)
-    - [Fragment là gì](#fragment-là-gì)
-    - [Add Fragment](#add-fragment)
-        - [Add by Code](#add-by-code)
-            - [Bước 1: Tạo Fragment](#bước-1-tạo-fragment)
-            - [Bước 2: Gọi vào trong Activities](#bước-2-gọi-vào-trong-activities)
-        - [Add fragment by XML](#add-fragment-by-xml)
-    - [Communicate – Giao tiếp với Fragment](#communicate--giao-tiếp-với-fragment)
-        - [Bước 1: tạo interface giao tiếp](#bước-1-tạo-interface-giao-tiếp)
-        - [Bước 2: Tạo FragmentA](#bước-2-tạo-fragmenta)
-        - [Bước 3: tạo Fragment B](#bước-3-tạo-fragment-b)
-        - [Bước 4: gọi 2 Fragment trong Activity](#bước-4-gọi-2-fragment-trong-activity)
-    - [Xủ lý Fragment trên Activity](#xủ-lý-fragment-trên-activity)
+- [Fragment – Mảnh](#fragment-%e2%80%93-m%e1%ba%a3nh)
+  - [Fragment là gì](#fragment-l%c3%a0-g%c3%ac)
+  - [Add Fragment](#add-fragment)
+    - [Add by Code](#add-by-code)
+      - [Bước 1: Tạo Fragment](#b%c6%b0%e1%bb%9bc-1-t%e1%ba%a1o-fragment)
+      - [Bước 2: Gọi vào trong Activities](#b%c6%b0%e1%bb%9bc-2-g%e1%bb%8di-v%c3%a0o-trong-activities)
+    - [Add fragment by XML](#add-fragment-by-xml)
+  - [Communicate – Giao tiếp với Fragment](#communicate-%e2%80%93-giao-ti%e1%ba%bfp-v%e1%bb%9bi-fragment)
+    - [Bước 1: tạo interface giao tiếp](#b%c6%b0%e1%bb%9bc-1-t%e1%ba%a1o-interface-giao-ti%e1%ba%bfp)
+    - [Bước 2: Tạo FragmentA](#b%c6%b0%e1%bb%9bc-2-t%e1%ba%a1o-fragmenta)
+    - [Bước 3: tạo Fragment B](#b%c6%b0%e1%bb%9bc-3-t%e1%ba%a1o-fragment-b)
+    - [Bước 4: gọi 2 Fragment trong Activity](#b%c6%b0%e1%bb%9bc-4-g%e1%bb%8di-2-fragment-trong-activity)
+  - [Xủ lý Fragment trên Activity](#x%e1%bb%a7-l%c3%bd-fragment-tr%c3%aan-activity)
 
 <!-- /TOC -->
 
@@ -394,6 +394,25 @@ public class MainActivity extends Activity {
         }
     }
 
+    // Show exist fragment on top
+    private void showExistFragment(Fragment fragment, String tag) {
+        FragmentManager manager = getChildFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        Fragment fragment = manager.findFragmentByTag(tag);
+            if (fragment != null) {
+            transaction.show(fragment);
+
+            // Hide all Fragments
+            List<Fragment> existFrags = manager.getFragments();
+            for (Fragment exitFrag : existFrags) {
+                if (exitFrag != fragment && exitFrag.isAdded()) {
+                    transaction.hide(exitFrag);
+                }
+            }
+            transaction.commit();
+        }
+    }
+
     public void back(View view) {
         // xóa hết entry cuối cùng trong backstack
         fragManager.popBackStack();
@@ -421,3 +440,5 @@ public class MainActivity extends Activity {
     }
 }
 ```
+
+---
