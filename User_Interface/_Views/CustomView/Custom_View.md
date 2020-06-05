@@ -1,19 +1,19 @@
 # Tạo View đặt biệt
 
-- [Tạo View đặt biệt](#t%E1%BA%A1o-view-%C4%91%E1%BA%B7t-bi%E1%BB%87t)
-    - [View Life Cycle](#view-life-cycle)
-    - [Code Example](#code-example)
-        - [Tạo 1 Button Với 1 Layout riêng](#t%E1%BA%A1o-1-button-v%E1%BB%9Bi-1-layout-ri%C3%AAng)
-            - [Tạo 1 layout: res/layout/view_custom_button.xml](#t%E1%BA%A1o-1-layout-reslayoutviewcustombuttonxml)
-            - [Tạo 1 file chứa thuộc tính của View: atrrs_custom_button.xml](#t%E1%BA%A1o-1-file-ch%E1%BB%A9a-thu%E1%BB%99c-t%C3%ADnh-c%E1%BB%A7a-view-atrrscustombuttonxml)
-            - [Tạo 1 file Khởi tạo cho Button: CustomButton.java](#t%E1%BA%A1o-1-file-kh%E1%BB%9Fi-t%E1%BA%A1o-cho-button-custombuttonjava)
-            - [Sử dụng trong Layout](#s%E1%BB%AD-d%E1%BB%A5ng-trong-layout)
-            - [Sử dụng trong Component](#s%E1%BB%AD-d%E1%BB%A5ng-trong-component)
-        - [Tạo 1 Button Vẽ bằng Canvas](#t%E1%BA%A1o-1-button-v%E1%BA%BD-b%E1%BA%B1ng-canvas)
-            - [File: res/values/attrs_draw_button.xml](#file-resvaluesattrsdrawbuttonxml)
-            - [File: DrawButton.java](#file-drawbuttonjava)
-            - [Sử dụng trong Layout](#s%E1%BB%AD-d%E1%BB%A5ng-trong-layout)
-            - [Sử dụng trong Component](#s%E1%BB%AD-d%E1%BB%A5ng-trong-component)
+- [Tạo View đặt biệt](#t%e1%ba%a1o-view-%c4%91%e1%ba%b7t-bi%e1%bb%87t)
+  - [View Life Cycle](#view-life-cycle)
+  - [Code Example](#code-example)
+    - [Tạo 1 Button Với 1 Layout riêng](#t%e1%ba%a1o-1-button-v%e1%bb%9bi-1-layout-ri%c3%aang)
+      - [Tạo 1 layout: res/layout/view_custom_button.xml](#t%e1%ba%a1o-1-layout-reslayoutviewcustombuttonxml)
+      - [Tạo 1 file chứa thuộc tính của View: values/atrrs_custom_button.xml](#t%e1%ba%a1o-1-file-ch%e1%bb%a9a-thu%e1%bb%99c-t%c3%adnh-c%e1%bb%a7a-view-valuesatrrscustombuttonxml)
+      - [Tạo 1 file Khởi tạo cho Button: CustomButton.java](#t%e1%ba%a1o-1-file-kh%e1%bb%9fi-t%e1%ba%a1o-cho-button-custombuttonjava)
+      - [Sử dụng trong Layout](#s%e1%bb%ad-d%e1%bb%a5ng-trong-layout)
+      - [Sử dụng trong Component](#s%e1%bb%ad-d%e1%bb%a5ng-trong-component)
+    - [Tạo 1 Button Vẽ bằng Canvas](#t%e1%ba%a1o-1-button-v%e1%ba%bd-b%e1%ba%b1ng-canvas)
+      - [File: res/values/attrs_draw_button.xml](#file-resvaluesattrsdrawbuttonxml)
+      - [File: DrawButton.java](#file-drawbuttonjava)
+      - [Sử dụng trong Layout](#s%e1%bb%ad-d%e1%bb%a5ng-trong-layout-1)
+      - [Sử dụng trong Component](#s%e1%bb%ad-d%e1%bb%a5ng-trong-component-1)
 
 ## View Life Cycle
 
@@ -191,7 +191,6 @@ mCustomButton.setTitle("sdflalsdlfal");
 
 ```java
 /**
- * Created by Imark-N on 11/10/2015.
  * Custom view Tạo giao diện bằng = Draw api (Code)
  * http://code.tutsplus.com/tutorials/android-sdk-creating-custom-views--mobile-14548
  */

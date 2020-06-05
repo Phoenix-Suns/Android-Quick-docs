@@ -81,6 +81,8 @@ Observable.empty();
 Observable.create(emitter -> {
     // Send Error
     emitter.onError(new IllegalStateException("This's a ERROR!"));
+    // Or
+    return Observable.error(new Throwable("This's a ERROR!"));
 });
 ```
 
@@ -98,3 +100,4 @@ Observable.create(emitter -> {
 
 - <https://github.com/ReactiveX/RxJava>
 - <http://reactivex.io/documentation/observable.html>
+- <https://viblo.asia/p/cung-tim-hieu-ve-rxjava-phan-1-QpmleBmk5rd>
