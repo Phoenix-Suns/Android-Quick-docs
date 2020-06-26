@@ -28,7 +28,16 @@ Observable.combineLatest(
     });
 ```
 
-### 
+### Search - Wating active
+
+```java
+RxTextView.textChanges(editText)
+    .debounce(500, TimeUnit.MILLISECONDS)
+    .observeOn(AndroidSchedulers.mainThread())
+    .subscribe(charSequence -> {
+        startSearch(charSequence.toString());
+    });
+```
 
 ---
 

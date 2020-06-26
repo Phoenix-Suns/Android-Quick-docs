@@ -1,16 +1,16 @@
 # Data Binding: hiển thị giao diện XML theo Data
 
-- [Data Binding: hiển thị giao diện XML theo Data](#data-binding-hi%e1%bb%83n-th%e1%bb%8b-giao-di%e1%bb%87n-xml-theo-data)
-  - [Cài đặt](#c%c3%a0i-%c4%91%e1%ba%b7t)
-  - [Sử dụng](#s%e1%bb%ad-d%e1%bb%a5ng)
-    - [Sử dụng trong Activity](#s%e1%bb%ad-d%e1%bb%a5ng-trong-activity)
-    - [Trong Activity với ViewModel](#trong-activity-v%e1%bb%9bi-viewmodel)
-    - [Sử dụng trong Fragment](#s%e1%bb%ad-d%e1%bb%a5ng-trong-fragment)
-    - [Sử dụng trong RecyclerView](#s%e1%bb%ad-d%e1%bb%a5ng-trong-recyclerview)
-  - [1 số thao tác trong View](#1-s%e1%bb%91-thao-t%c3%a1c-trong-view)
-  - [BindingAdapter: Tạo thuộc tính mới cho View](#bindingadapter-t%e1%ba%a1o-thu%e1%bb%99c-t%c3%adnh-m%e1%bb%9bi-cho-view)
+- [Data Binding: hiển thị giao diện XML theo Data](#data-binding-hiển-thị-giao-diện-xml-theo-data)
+  - [Cài đặt](#cài-đặt)
+  - [Sử dụng](#sử-dụng)
+    - [Sử dụng trong Activity](#sử-dụng-trong-activity)
+    - [Trong Activity với ViewModel](#trong-activity-với-viewmodel)
+    - [Sử dụng trong Fragment](#sử-dụng-trong-fragment)
+    - [Sử dụng trong RecyclerView](#sử-dụng-trong-recyclerview)
+  - [1 số thao tác trong View](#1-số-thao-tác-trong-view)
+  - [BindingAdapter: Tạo thuộc tính mới cho View](#bindingadapter-tạo-thuộc-tính-mới-cho-view)
   - [Common Errors](#common-errors)
-  - [Tham khảo](#tham-kh%e1%ba%a3o)
+  - [Tham khảo](#tham-khảo)
 
 ## Cài đặt
 
@@ -63,9 +63,9 @@ override fun onCreate() {
     android:id="@+id/plain_name"
     android:text="@{name}"/>
 
-<TextView
+<EditText
     android:id="@+id/plain_lastname"
-    android:text="@{lastName}"/>
+    android:text="@={lastName}"/>
 ```
 
 ### Trong Activity với ViewModel
@@ -169,6 +169,13 @@ class MyAdapter(private val myDataset: Array<String>) :
 ```
 
 ## 1 số thao tác trong View
+
+```java
+// Bind trong view
+ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater, layoutId,
+parent, attachToParent);
+ViewDataBinding binding = DataBindingUtil.bindTo(viewRoot, layoutId);
+```
 
 ```xml
 android:text="@{String.valueOf(index + 1)}"

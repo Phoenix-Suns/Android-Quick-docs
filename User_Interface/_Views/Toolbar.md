@@ -25,6 +25,21 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 ```
 
+## Tricks
+
+```xml
+<android.support.design.widget.AppBarLayout
+    // shadow
+    app:elevation="0dp"
+    // Background
+    android:background="@null" >
+
+
+    <androidx.appcompat.widget.Toolbar
+        // Remove start padding
+        app:contentInsetStart="0dp" />
+```
+
 ---
 
 ## Reference
