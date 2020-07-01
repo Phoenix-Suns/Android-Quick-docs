@@ -158,6 +158,15 @@ class MyAdapter(private val myDataset: Array<String>) :
         return MyViewHolder(view)
     }
 
+    // Hay là
+    /*
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): MyViewHolder {
+        val inflater = LayoutInflater.from(viewGroup.context)
+        val itemBinding = DataBindingUtil.inflate(inflater, R.layout.list_item_my_adapter, viewGroup, false)
+        return MyViewHolder(itemBinding)
+    }
+    */
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.textView.text = myDataset[position]
         // ======= 2 ==========
@@ -172,8 +181,7 @@ class MyAdapter(private val myDataset: Array<String>) :
 
 ```java
 // Bind trong view
-ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater, layoutId,
-parent, attachToParent);
+ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater, layoutId, parent, attachToParent);
 ViewDataBinding binding = DataBindingUtil.bindTo(viewRoot, layoutId);
 ```
 

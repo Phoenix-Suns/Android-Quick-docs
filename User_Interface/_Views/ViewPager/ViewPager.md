@@ -4,6 +4,13 @@ list trượt qua trượt lại
 
 ## Simple Pager adapter
 
+```xml
+<android.support.v4.view.ViewPager
+                android:id="@+id/viewpager_credits"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+```
+
 ```java
 class CreditPagerAdapter extends PagerAdapter {
     private Context context;
