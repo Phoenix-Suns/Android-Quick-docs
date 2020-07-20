@@ -12,6 +12,11 @@ list trượt qua trượt lại
 ```
 
 ```java
+// init on Activity
+CreditPagerAdapter creditPagerAdapter = new CreditPagerAdapter(getContext());
+viewPagerCredits.setAdapter(creditPagerAdapter);
+
+// Class
 class CreditPagerAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
@@ -82,6 +87,12 @@ class CreditPagerAdapter extends PagerAdapter {
 
 ### show multiple Page
 
+```xml
+<android.support.v4.view.ViewPager
+    android:paddingStart="@dimen/space_16dp"
+    android:paddingEnd="@dimen/space_16dp" />
+```
+
 ```java
 viewPagerCredits.setClipToPadding(false);
 viewPagerCredits.setPageMargin(ConvertUtils.dpToPx(16)); // page margin
@@ -124,3 +135,4 @@ public int getItemPosition(@NonNull Object object) {
 ## Reference
 
 - <https://guides.codepath.com/android/ViewPager-with-FragmentPagerAdapter>
+- <https://developer.android.com/training/animation/vp2-migration>

@@ -90,3 +90,9 @@ inner class MainPagerAdapter(fragmentContainer: Fragment) : FragmentStateAdapter
     }
 }
 ```
+
+---
+
+## Reference
+
+- <https://developer.android.com/training/animation/vp2-migration>
