@@ -135,3 +135,29 @@ PolylineOptions lineOptions = new PolylineOptions()
 Polyline line = mMap.addPolyline(lineOptions);
 ```
 
+## Zoom
+
+```java
+new Handler().postDelayed(() -> {
+    map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(profileAddress.getLatitude(), profileAddress.getLongitude()), 16f));
+}, 100);
+```
+
+## Bound all marker
+
+```java
+/**
+  * Bound all locate on Map
+  * @param map
+  * @param latLngs
+  */
+public static void boundLocates(GoogleMap map, List<LatLng> latLngs, int padding) {
+    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+    for (LatLng latLng : latLngs) {
+        builder.include(latLng);
+    }
+    LatLngBounds bounds = builder.build();
+    CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+    map.animateCamera(cu);
+}
+```

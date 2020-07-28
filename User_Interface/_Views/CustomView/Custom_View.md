@@ -1,31 +1,31 @@
 # Tạo View đặt biệt
 
-- [Tạo View đặt biệt](#t%e1%ba%a1o-view-%c4%91%e1%ba%b7t-bi%e1%bb%87t)
+- [Tạo View đặt biệt](#tạo-view-đặt-biệt)
   - [View Life Cycle](#view-life-cycle)
   - [Code Example](#code-example)
-    - [Tạo 1 Button Với 1 Layout riêng](#t%e1%ba%a1o-1-button-v%e1%bb%9bi-1-layout-ri%c3%aang)
-      - [Tạo 1 layout: res/layout/view_custom_button.xml](#t%e1%ba%a1o-1-layout-reslayoutviewcustombuttonxml)
-      - [Tạo 1 file chứa thuộc tính của View: values/atrrs_custom_button.xml](#t%e1%ba%a1o-1-file-ch%e1%bb%a9a-thu%e1%bb%99c-t%c3%adnh-c%e1%bb%a7a-view-valuesatrrscustombuttonxml)
-      - [Tạo 1 file Khởi tạo cho Button: CustomButton.java](#t%e1%ba%a1o-1-file-kh%e1%bb%9fi-t%e1%ba%a1o-cho-button-custombuttonjava)
-      - [Sử dụng trong Layout](#s%e1%bb%ad-d%e1%bb%a5ng-trong-layout)
-      - [Sử dụng trong Component](#s%e1%bb%ad-d%e1%bb%a5ng-trong-component)
-    - [Tạo 1 Button Vẽ bằng Canvas](#t%e1%ba%a1o-1-button-v%e1%ba%bd-b%e1%ba%b1ng-canvas)
-      - [File: res/values/attrs_draw_button.xml](#file-resvaluesattrsdrawbuttonxml)
+    - [Tạo 1 Button Với 1 Layout riêng](#tạo-1-button-với-1-layout-riêng)
+      - [Tạo 1 layout: res/layout/view_custom_button.xml](#tạo-1-layout-reslayoutview_custom_buttonxml)
+      - [Tạo 1 file chứa thuộc tính của View: values/atrrs_custom_button.xml](#tạo-1-file-chứa-thuộc-tính-của-view-valuesatrrs_custom_buttonxml)
+      - [Tạo 1 file Khởi tạo cho Button: CustomButton.java](#tạo-1-file-khởi-tạo-cho-button-custombuttonjava)
+      - [Sử dụng trong Layout](#sử-dụng-trong-layout)
+      - [Sử dụng trong Component](#sử-dụng-trong-component)
+    - [Tạo 1 Button Vẽ bằng Canvas](#tạo-1-button-vẽ-bằng-canvas)
+      - [File: res/values/attrs_draw_button.xml](#file-resvaluesattrs_draw_buttonxml)
       - [File: DrawButton.java](#file-drawbuttonjava)
-      - [Sử dụng trong Layout](#s%e1%bb%ad-d%e1%bb%a5ng-trong-layout-1)
-      - [Sử dụng trong Component](#s%e1%bb%ad-d%e1%bb%a5ng-trong-component-1)
+      - [Sử dụng trong Layout](#sử-dụng-trong-layout-1)
+      - [Sử dụng trong Component](#sử-dụng-trong-component-1)
 
 ## View Life Cycle
 
 Vòng đời 1 View
 
-![image_1](/Images/custom_view_lifecycle.png)
+![image_1](custom_view_lifecycle.png)
 
 ## Code Example
 
 ### Tạo 1 Button Với 1 Layout riêng
 
-![image_2](/Images/custom_view_example_2.png)
+![image_2](custom_view_example_2.png)
 
 #### Tạo 1 layout: res/layout/view_custom_button.xml
 
@@ -173,7 +173,7 @@ mCustomButton.setTitle("sdflalsdlfal");
 
 ### Tạo 1 Button Vẽ bằng Canvas
 
-![image_1](/Images/custom_view_example_1.png)
+![image_1](custom_view_example_1.png)
 
 #### File: res/values/attrs_draw_button.xml
 
