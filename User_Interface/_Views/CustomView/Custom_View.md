@@ -14,6 +14,10 @@
       - [File: DrawButton.java](#file-drawbuttonjava)
       - [Sử dụng trong Layout](#sử-dụng-trong-layout-1)
       - [Sử dụng trong Component](#sử-dụng-trong-component-1)
+    - [Ghi Chú](#ghi-chú)
+      - [View Update](#view-update)
+      - [Find Child View](#find-child-view)
+  - [Reference](#reference)
 
 ## View Life Cycle
 
@@ -331,3 +335,53 @@ public class DrawButton extends View {
 mDrawButton = (DrawButton) findViewById(R.id.drawButton);
 mDrawButton.setLabelText("nghĩaddd");
 ```
+
+### Ghi Chú
+
+#### View Update
+
+- **invalidate()** sử dụng được vẽ lại các view đơn giản. Ví dụ khi bạn u**pdate lại text, color hay tương tác chạm điểm**. Có nghĩa là view chỉ cần đơn giản gọi onDraw() để update lại trạng thái của view.
+- **requestLayout()** như bạn thấy trong sơ đồ lifecycle thì method này sẽ gọi lại view update từ onMeasure(). Điều đó có nghĩa là việc thực hiện vẽ lại view sẽ được **tính toán lại kích thướ**c. Kích thước mới có thể được tính lại ở onMeasure vẽ sẽ thực hiện vẽ theo kích thước mới đó.
+
+#### Find Child View
+
+```xml
+<declare-styleable name="CustomContainer">
+    <attr name="empty_id" format="reference|enum" />
+</declare-styleable>
+```
+
+```xml
+<self.tranluunghia.testandroid.MultipleStateV2View
+    app:empty_id="@id/viewEmpty">
+
+    <TextView android:id="@+id/viewEmpty" />
+
+</self.tranluunghia.testandroid.MultipleStateV2View
+```
+
+```java
+class CustomContainer : FrameLayout {
+    private var emptyId: Int = LAYOUT_EMPTY
+    var emptyView: View? = null
+
+    private fun init(context: Context, attrs: AttributeSet?) {
+            val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.CustomContainer, 0, 0)
+            emptyId = typedArray.getResourceId(R.styleable.CustomContainer_empty_id, LAYOUT_EMPTY)
+    }
+
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+
+        // ===== FIND IN HERE ======
+        if (emptyId != LAYOUT_EMPTY)
+            emptyView = findViewById<View>(emptyId)
+    }
+}
+```
+
+---
+
+## Reference
+
+- <https://viblo.asia/p/android-custom-view-924lJr6zlPM>
