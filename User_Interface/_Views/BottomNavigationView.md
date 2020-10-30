@@ -54,9 +54,6 @@ private void setUpBottomTabNavigation() {
         navigationView.getMenu().add(Menu.NONE, i, i, tabFrag.getTitle()).setIcon(tabFrag.getIcon());
     }
 
-    // Load first tab
-    loadTabFragment(tabList.get(0).getFragment());
-
     // show fragment when click
     navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -79,8 +76,44 @@ protected List<TabFragment> getTabList() {
 
 private void loadTabFragment(Fragment fragment) {
     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-    transaction.replace(R.id.flTabContent, fragment);
-    transaction.addToBackStack(null);
+    Fragment exitsFragment = fm.findFragmentById(R.id.flTabContent);
+    if (exitsFragment == null)
+        transaction.add(R.id.flTabContent, fragment);
+    else
+        transaction.replace(R.id.flTabContent, fragment);
+    transaction.commit();
+}
+
+/** load fragment giữ lại stage
+**/
+private void loadTabFragment(Fragment fragment) {
+    // 1 ý tưởng khác:
+    // hide fragment hiện tại
+    // Tìm fragment trong FragmentManager
+        // có: show lên
+        // không có: add vào, show lên
+
+    String tag = fragment.getClass().getName();
+    FragmentManager fm = getChildFragmentManager();
+    FragmentTransaction transaction = fm.beginTransaction();
+
+    // Hide exist fragments
+    for (Fragment frag : fm.getFragments()) {
+        if (frag != null && frag.isVisible()) {
+            transaction.hide(frag);
+        }
+    }
+
+    // check frag exist
+    Fragment exitsFragment = fm.findFragmentByTag(tag);
+    if (exitsFragment != null && exitsFragment.getClass().getName().equals(fragment.getClass().getName())) {
+        //show Fragment already exists
+        transaction.show(fragment);
+    } else {
+        //Add Fragment
+        transaction.add(R.id.flTabContent, fragment, tag);
+    }
+
     transaction.commit();
 }
 ```

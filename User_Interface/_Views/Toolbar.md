@@ -46,6 +46,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
+            app:title="text toollbar final"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <!-- app:layout_scrollFlags="scroll|enterAlways" 
@@ -58,8 +59,31 @@
                 app:layout_scrollFlags="scroll|enterAlways">
             </androidx.appcompat.widget.Toolbar>
 
+            <!-- Background -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/brihadishwara" />
+
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 </android.support.design.widget.AppBarLayout>
+```
+
+## Sroll Event
+
+```java
+appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener
+{ appBarLayout, verticalOffset ->
+    when {
+        verticalOffset == 0 -> {
+            // AppBar end scroll down
+        }
+        abs(verticalOffset) >= appBarLayout?.totalScrollRange ?: 0 -> {
+            // AppBar end scroll up
+        }
+    }
+})
 ```
 
 ## Tricks

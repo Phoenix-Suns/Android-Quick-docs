@@ -1,10 +1,12 @@
 # Fragment - Mảnh, phần giao diện - Phân đoạn
 
-- [Fragment - Mảnh, phần giao diện - Phân đoạn](#fragment---m%e1%ba%a3nh-ph%e1%ba%a7n-giao-di%e1%bb%87n---ph%c3%a2n-%c4%91o%e1%ba%a1n)
-	- [Fragment là gì](#fragment-l%c3%a0-g%c3%ac)
-		- [Vòng đời, quy trình tồn tại:](#v%c3%b2ng-%c4%91%e1%bb%9di-quy-tr%c3%acnh-t%e1%bb%93n-t%e1%ba%a1i)
-		- [Template - Code mẫu](#template---code-m%e1%ba%abu)
-		- [Xử lý Fragment trong Activity](#x%e1%bb%ad-l%c3%bd-fragment-trong-activity)
+- [Fragment - Mảnh, phần giao diện - Phân đoạn](#fragment---mảnh-phần-giao-diện---phân-đoạn)
+	- [Fragment là gì](#fragment-là-gì)
+		- [Vòng đời, quy trình tồn tại:](#vòng-đời-quy-trình-tồn-tại)
+		- [Template - Code mẫu](#template---code-mẫu)
+		- [Xử lý Fragment trong Activity](#xử-lý-fragment-trong-activity)
+	- [Add + Replace Fragment](#add--replace-fragment)
+	- [Load Old Fragment - With old state](#load-old-fragment---with-old-state)
 
 ## Fragment là gì
 
@@ -190,6 +192,58 @@ fragManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChanged
     }
 });
 ```
+
+## Add + Replace Fragment
+
+```java
+private void addOrReplaceFragment(Fragment fragment) {
+    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+    Fragment exitsFragment = fm.findFragmentById(R.id.flTabContent);
+    if (exitsFragment == null)
+        transaction.add(R.id.container, fragment);
+    else
+        transaction.replace(R.id.container, fragment);
+    transaction.commit();
+}
+```
+
+## Load Old Fragment - With old state
+
+```java
+/** load fragment giữ lại stage
+**/
+private void loadTabFragment(Fragment fragment) {
+    // 1 ý tưởng khác:
+    // hide fragment hiện tại
+    // Tìm fragment trong FragmentManager
+        // có: show lên
+        // không có: add vào, show lên
+
+    String tag = fragment.getClass().getName();
+    FragmentManager fm = getChildFragmentManager();
+    FragmentTransaction transaction = fm.beginTransaction();
+
+    // Hide exist fragments
+    for (Fragment frag : fm.getFragments()) {
+        if (frag != null && frag.isVisible()) {
+            transaction.hide(frag);
+        }
+    }
+
+    // check frag exist
+    Fragment exitsFragment = fm.findFragmentByTag(tag);
+    if (exitsFragment != null && exitsFragment.getClass().getName().equals(fragment.getClass().getName())) {
+        //show Fragment already exists
+        transaction.show(fragment);
+    } else {
+        //Add Fragment
+        transaction.add(R.id.flTabContent, fragment, tag);
+    }
+
+    transaction.commit();
+}
+```
+
 
 ---
 
