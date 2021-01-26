@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@+id/start"
+        motion:constraintSetEnd="@+id/end"
+        motion:duration="1000"
+        motion:motionInterpolator="linear">
+
+        <OnSwipe motion:targetId="@+id/ivStarCenter"
+            motion:dragDirection="dragUp" />
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/ivStarCenter"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent">
+        </Constraint>
+        <Constraint
+            android:layout_height="64dp"
+            android:layout_width="64dp"
+            android:id="@+id/ivStarLeft"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="@+id/ivStarCenter"
+            android:layout_marginEnd="0dp" >
+            <CustomAttribute
+                motion:attributeName="alpha"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:layout_height="64dp"
+            android:layout_width="64dp"
+            motion:layout_constraintStart_toStartOf="@+id/ivStarCenter"
+            android:id="@+id/ivStarRight"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="0dp" >
+            <CustomAttribute
+                motion:attributeName="alpha"
+                motion:customFloatValue="0" />
+        </Constraint>
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end" >
+        <Constraint
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/ivStarCenter"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_editor_absoluteY="667dp"
+            motion:layout_editor_absoluteX="174dp" />
+        <Constraint
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/ivStarLeft"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="@+id/ivStarCenter"
+            android:layout_marginStart="100dp">
+            <CustomAttribute
+                motion:attributeName="alpha"
+                motion:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/ivStarRight"
+            motion:layout_editor_absoluteX="174dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/ivStarCenter"
+            android:layout_marginEnd="50dp">
+            <CustomAttribute
+                motion:attributeName="alpha"
+                motion:customFloatValue="1" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>
