@@ -4,6 +4,7 @@
   - [Example: kéo ô vuông](#example-kéo-ô-vuông)
     - [Chỉnh Frame](#chỉnh-frame)
   - [Motion Layout với AppBar Layout](#motion-layout-với-appbar-layout)
+  - [Learn More keyword](#learn-more-keyword)
   - [Reference](#reference)
 
 ## Example: kéo ô vuông
@@ -198,6 +199,11 @@ private fun coordinateMotion() {
     appBarLayout.addOnOffsetChangedListener(listener)
 }
 ```
+
+## Learn More keyword
+
+- MotionLayout KeyCycle
+- MotionLayout KeyTimeCycle
 
 --
 
