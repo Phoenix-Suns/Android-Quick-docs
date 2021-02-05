@@ -114,6 +114,7 @@ layoutViewPagerContainer.post(new Runnable() {
         int w = layoutViewPagerContainer.getWidth();
         viewPagerCredits.setPadding((int)(w * 0.25), 0, (int)(w * 0.25), 0);
         // 25% padding on either side so pages takes exactly 50% space
+        // don't use with getPageWidth
     }
 });
 ```
