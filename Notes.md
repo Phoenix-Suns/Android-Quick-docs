@@ -28,3 +28,6 @@ onCreateView(...) {
 ```<ImageView android:adjustViewBounds="true"/>```
 
 
+## Lỗi khi đổi language trong file file OBB
+
+https://stackoverflow.com/questions/52731670/android-app-bundle-with-in-app-locale-change/52733674
