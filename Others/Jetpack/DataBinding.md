@@ -120,6 +120,8 @@ override fun onCreateView(
     //return inflater.inflate(R.layout.fragment_like, container, false)
     // (fragment_like.xml = FragmentLikeBinding)
     val binding: FragmentLikeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_like, container, false)
+    // Hoặc là
+    //
     binding.lifecycleOwner = this
     binding.viewmodel = viewModel
     return binding.root
