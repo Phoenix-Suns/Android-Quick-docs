@@ -7,16 +7,19 @@ https://developer.android.com/reference/android/support/design/widget/BottomShee
 
 <!-- TOC -->
 
-- [1. Bottom Sheet - Dialog nhỏ, hiện bên dưới](#1-bottom-sheet---dialog-nh%e1%bb%8f-hi%e1%bb%87n-b%c3%aan-d%c6%b0%e1%bb%9bi)
+- [1. Bottom Sheet - Dialog nhỏ, hiện bên dưới](#1-bottom-sheet---dialog-nhỏ-hiện-bên-dưới)
   - [1.1. Setup](#11-setup)
-  - [1.2. Bottom Sheet Trong giao diện chính](#12-bottom-sheet-trong-giao-di%e1%bb%87n-ch%c3%adnh)
+  - [1.2. Bottom Sheet Trong giao diện chính](#12-bottom-sheet-trong-giao-diện-chính)
     - [1.2.1. MainActivity.xml](#121-mainactivityxml)
-    - [1.2.2. bottom_sheet.xml](#122-bottomsheetxml)
+    - [1.2.2. bottom_sheet.xml](#122-bottom_sheetxml)
     - [1.2.3. MainActivity.java](#123-mainactivityjava)
+    - [Đóng - Mở](#đóng---mở)
     - [1.2.4. CallBack](#124-callback)
+    - [Toàn màn hình (Full Screen)](#toàn-màn-hình-full-screen)
   - [1.3. Bottom Sheet Dialog](#13-bottom-sheet-dialog)
     - [1.3.1. BottomSheetFragment.java](#131-bottomsheetfragmentjava)
     - [1.3.2. MainActivity.java: Open Bottom Sheet](#132-mainactivityjava-open-bottom-sheet)
+    - [Toàn màn hình (Full Screen) dialog](#toàn-màn-hình-full-screen-dialog)
   - [Reference](#reference)
 
 <!-- /TOC -->
@@ -66,7 +69,11 @@ dependencies {
 // Setup
 layoutBottomSheet = findViewById(R.id.bottom_sheet);
 BottomSheetBehavior sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
+```
 
+### Đóng - Mở
+
+```java
 /** manually opening / closing bottom sheet on button click */
 @OnClick(R.id.btn_bottom_sheet)
 public void toggleBottomSheet() {
@@ -111,6 +118,18 @@ sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback
 
     }
 });
+```
+
+### Toàn màn hình (Full Screen)
+
+```xml
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/space_4dp"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 ```
 
 ## 1.3. Bottom Sheet Dialog
@@ -162,9 +181,29 @@ public void showBottomSheetDialogFragment() {
 }
 ```
 
+### Toàn màn hình (Full Screen) dialog
+
+```java
+override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+    //#region ====== SET SHOW FULL HEIGHT =======
+    val bottomSheetDialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
+    bottomSheetDialog.setOnShowListener {
+        val dialog = it as BottomSheetDialog
+        val bottomSheet: FrameLayout? = dialog.findViewById(R.id.design_bottom_sheet)
+        BottomSheetBehavior.from(bottomSheet!!).state = BottomSheetBehavior.STATE_EXPANDED
+        BottomSheetBehavior.from(bottomSheet).skipCollapsed = true
+        BottomSheetBehavior.from(bottomSheet).setHideable(true)
+    }
+    //#endregion
+
+    return bottomSheetDialog
+}
+```
+
 ---
 
 ## Reference 
 
-- https://stackoverflow.com/questions/35618998/how-to-implement-bottom-sheets-using-new-design-support-library-23-2
-- https://developer.android.com/jetpack/androidx/migrate/artifact-mappings
+- <https://stackoverflow.com/questions/35618998/how-to-implement-bottom-sheets-using-new-design-support-library-23-2>
+- <https://developer.android.com/jetpack/androidx/migrate/artifact-mappings>
