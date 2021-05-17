@@ -14,3 +14,11 @@
 - Màu: backgroundTint
 - Màu khi ấn: rippleColor
 - Viền: stroke
+
+## Shape image
+
+- Tạo khung cho Image (Vuông, Tròn, Tam giác)
+
+- <https://howtodoandroid.com/shapeableimageview-material-components-android/>
+
+
