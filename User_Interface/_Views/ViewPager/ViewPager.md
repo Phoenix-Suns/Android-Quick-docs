@@ -2,6 +2,15 @@
 
 list trượt qua trượt lại
 
+- [ViewPager](#viewpager)
+  - [Simple Pager adapter](#simple-pager-adapter)
+  - [Tips](#tips)
+    - [show multiple Page](#show-multiple-page)
+    - [Set item center](#set-item-center)
+    - [Lấy giá trị tại vị trí](#lấy-giá-trị-tại-vị-trí)
+    - [Re-create fragment when notifyDataSetChanged](#re-create-fragment-when-notifydatasetchanged)
+  - [Reference](#reference)
+
 ## Simple Pager adapter
 
 ```xml
@@ -117,6 +126,15 @@ layoutViewPagerContainer.post(new Runnable() {
         // don't use with getPageWidth
     }
 });
+```
+
+### Lấy giá trị tại vị trí
+
+```java
+pagerAdapter.getValueAt(viewPager.getCurrentItem());
+fun getValueAt(position: Int): TopUpPackage {
+    return items[position]
+}
 ```
 
 ### Re-create fragment when notifyDataSetChanged

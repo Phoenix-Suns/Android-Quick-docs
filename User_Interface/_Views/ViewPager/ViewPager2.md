@@ -1,5 +1,20 @@
 # View Pager (Tab kéo qua lại)
 
+- [View Pager (Tab kéo qua lại)](#view-pager-tab-kéo-qua-lại)
+  - [So sánh với ViewPager2 vs ViewPager](#so-sánh-với-viewpager2-vs-viewpager)
+  - [Simple start](#simple-start)
+  - [Reference](#reference)
+
+## So sánh với ViewPager2 vs ViewPager
+
+- Hỗ trợ RecyclerView
+- DiffUtil (thay đổi không cần refresh dữ liệu)
+- Hỗ trợ RTL (Right to left layout)
+- Vertical Orientation (Hỗ trợ vuốt layout kiểu dọc)
+- Nhiều kiểu layout
+- Adapter như RecyclerView
+- Pager snap
+
 ## Simple start
 
 ```xml
@@ -36,8 +51,8 @@
 ```
 
 ```java
-private var myDanceFightsFrag: MyDanceFightsFragment? = null
-private var myDancesFrag: MyDancesFragment? = null
+private var firstFragment: FirstFragment? = null
+private var secondFragment: SecondFragment? = null
 private var fragArr : Array<Fragment> = arrayOf()
 private var titleArr : Array<String> = arrayOf()
 private var mainPagerAdapter: MainPagerAdapter? = null
@@ -48,9 +63,9 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 }
 
 private fun initTab() {
-    myDanceFightsFrag = MyDanceFightsFragment.newInstance()
-    myDancesFrag = MyDancesFragment.newInstance()
-    fragArr = arrayOf(myDanceFightsFrag!!, myDancesFrag!!)
+    firstFragment = FirstFragment.newInstance()
+    secondFragment = SecondFragment.newInstance()
+    fragArr = arrayOf(firstFragment!!, secondFragment!!)
 
     titleArr = arrayOf(
         resources.getString(R.string.my_profile_my_dance_fights),
