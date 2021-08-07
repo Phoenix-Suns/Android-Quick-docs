@@ -3,6 +3,16 @@
 Hiển thị danh sách lên giao diện như ListView.
 Hiển thị đa dạng hơn.
 
+- [RECYCLE VIEW](#recycle-view)
+  - [Simple Example](#simple-example)
+    - [Bước 1: Thêm RecycleView trong: build.gradle](#bước-1-thêm-recycleview-trong-buildgradle)
+    - [Bước 2: Tạo trên giao diện activity layout](#bước-2-tạo-trên-giao-diện-activity-layout)
+      - [Tạo giao diện mỗi dòng: layout/item_recyclerview.xml](#tạo-giao-diện-mỗi-dòng-layoutitem_recyclerviewxml)
+    - [Bước 3: Tạo ItemModel để lưu trữ Item: ItemModel.java](#bước-3-tạo-itemmodel-để-lưu-trữ-item-itemmodeljava)
+      - [Khởi tạo Adapter kết nối Item: CustomRecyclerAdapter.java](#khởi-tạo-adapter-kết-nối-item-customrecycleradapterjava)
+    - [Bước 4: Sử dụng trong Activity](#bước-4-sử-dụng-trong-activity)
+  - [Reference](#reference)
+
 ## Simple Example
 
 ![example 1]("recyclerview_basic_1.jpg")

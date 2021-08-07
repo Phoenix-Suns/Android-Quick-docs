@@ -11,14 +11,14 @@
   - Single Activity App
 
 - [Android Navigation](#android-navigation)
-  - [Cài đặt](#c%c3%a0i-%c4%91%e1%ba%b7t)
-  - [Thuộc tính](#thu%e1%bb%99c-t%c3%adnh)
-  - [Sử dụng](#s%e1%bb%ad-d%e1%bb%a5ng)
-    - [Hiển thị Navigation trong Activity](#hi%e1%bb%83n-th%e1%bb%8b-navigation-trong-activity)
-    - [Điều hướng trong Fragment](#%c4%90i%e1%bb%81u-h%c6%b0%e1%bb%9bng-trong-fragment)
-    - [Gởi Argument giữa các Fragment](#g%e1%bb%9fi-argument-gi%e1%bb%afa-c%c3%a1c-fragment)
-    - [Tạo PendingIntent (DeepLink)](#t%e1%ba%a1o-pendingintent-deeplink)
-  - [Tham khảo](#tham-kh%e1%ba%a3o)
+  - [Cài đặt](#cài-đặt)
+  - [Thuộc tính](#thuộc-tính)
+  - [Sử dụng](#sử-dụng)
+    - [Hiển thị Navigation trong Activity](#hiển-thị-navigation-trong-activity)
+    - [Điều hướng trong Fragment](#điều-hướng-trong-fragment)
+    - [Gởi Argument giữa các Fragment](#gởi-argument-giữa-các-fragment)
+    - [Tạo PendingIntent (DeepLink)](#tạo-pendingintent-deeplink)
+  - [Tham khảo](#tham-khảo)
 
 ## Cài đặt
 
