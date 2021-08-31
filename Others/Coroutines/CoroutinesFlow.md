@@ -1,6 +1,9 @@
-# Flow: xuất ra list đồng thời (bất đồng bộ)
+# Flow
 
-- [Flow: xuất ra list đồng thời (bất đồng bộ)](#flow-xuất-ra-list-đồng-thời-bất-đồng-bộ)
+- Xuất ra list đồng thời (bất đồng bộ)
+- **Cold Streams**: Code trong flow { } **KHÔNG CHẠY**, chỉ chạy sau khi gọi Collect
+
+- [Flow](#flow)
   - [Cú pháp](#cú-pháp)
   - [Sequence: xuất ra list tuần tự (đồng bộ)](#sequence-xuất-ra-list-tuần-tự-đồng-bộ)
   - [Hàm xử lý](#hàm-xử-lý)
