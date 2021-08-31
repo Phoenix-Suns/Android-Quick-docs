@@ -17,6 +17,10 @@
     - [Cộng dồn giá trị, thêm giá trị: .fold](#cộng-dồn-giá-trị-thêm-giá-trị-fold)
     - [Cộng 2 flow (đợi 2 giá trị cùng ra): zip](#cộng-2-flow-đợi-2-giá-trị-cùng-ra-zip)
     - [Cộng 2 flow: combine](#cộng-2-flow-combine)
+  - [Set flow Context: .flowOn](#set-flow-context-flowon)
+  - [Chạy code phía dưới trước: launchIn](#chạy-code-phía-dưới-trước-launchin)
+  - [Catch Exception](#catch-exception)
+  - [Flow kết thúc](#flow-kết-thúc)
   - [Reference](#reference)
 
 ## Cú pháp
@@ -29,9 +33,11 @@ numberList().collect { println(it) }    // chỉ chạy khi gọi collect
 fun numberList(): Flow<Int> = flow {
     for (i in 1..3) {
         delay(1000)
-        // có thể dùng Suppend funtions trong flow
         emit(i) // Send value
     }
+
+    // có thể dùng Suppend funtions trong flow
+    // Chỉ chạy trên 1 context
 }
 
 // OR
@@ -154,7 +160,7 @@ println(sum)    // 10 + 1 + 2 + 3 = 16
 
 ```java
 // flow1[0] đợi flow2[0] cùng emit
-flow1.zip(flow2) { a, b -> ... }
+flow1.zip(flow2) { a, b -> "$a -> $b" }
 /* System.out:
 1 -> one
 2 -> two
@@ -166,7 +172,7 @@ flow1.zip(flow2) { a, b -> ... }
 
 ```java
 // Chỉ cần flow1[0] flow2[0] có giá trị
-flow1.combine(flow2) { a, b -> ... }
+flow1.combine(flow2) { a, b -> "$a -> $b" }
 /* System.out:
 1 -> one
 2 -> one
@@ -174,6 +180,60 @@ flow1.combine(flow2) { a, b -> ... }
 3 -> two
 3 -> three
 */
+```
+
+## Set flow Context: .flowOn
+
+```java
+flow {
+    //...
+}.flowOn(Dispatchers.Default)
+```
+
+## Chạy code phía dưới trước: launchIn
+
+```java
+runBlocking<Unit> {
+    (1..3).asFlow().onEach { delay(100) }
+        .onEach { event -> println("Event: $event") }
+            .launchIn(this) // <--- Launching the flow in a separate coroutine
+    println("Done")
+    // Done sẽ hiện trước 1,2,3
+}
+```
+
+## Catch Exception
+
+```java
+try {
+    flow { }
+} catch (e: Throwable) {
+    println("Caught $e")
+}
+
+// OR
+flow { }.catch { e -> println("Caught $e") }
+```
+
+## Flow kết thúc
+
+```java
+try {
+    flow { }
+} finally {
+    println("Done")
+}
+
+// OR
+flow { }.onCompletion { println("Done") }
+
+flow{ }
+    .onCompletion { cause -> 
+        if (cause != null) 
+            println("Done no ERROR") 
+    }
+    .catch { cause -> println("Caught exception") }
+    .collect { value -> println(value) }
 ```
 
 ## Reference

@@ -81,8 +81,8 @@ runBlocking(Dispatchers.IO + Job()) {
   - **Dispatcher**: thread quản lý
     - **Dispatchers.Main**: chạy trên main UI thread
     - **Dispatchers.IO**: chạy trên background thread của thread pool. Thường được dùng khi Read, write files, Database, Networking
-    - **Dispatchers.Unconfined**: Chạy trên thread bất kì, có thể chuyển từ UI thread sang background Thread
     - **Dispatchers.Default**: chạy trên background thread của thread pool. Thường được dùng khi sorting a list, parse Json, DiffUtils
+    - **Dispatchers.Unconfined**: Chạy trên thread bất kì, có thể chuyển từ UI thread sang background Thread
     - **newSingleThreadContext("name_thread")**: chạy trên một thread do mình đặt tên
     - **newFixedThreadPoolContext(3, "name_thread")**: sử dụng 3 threads trong shared background thread pool
 
