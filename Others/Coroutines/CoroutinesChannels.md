@@ -36,8 +36,5 @@ fun main() = runBlocking {
 - Xuất giá trị (remove luôn): .receive()
 - Đóng, ko cho send, receive: .close()
 - Kiểm tra Channel còn item: .isEmpty
-
-
-- Hoàn thành Coroutines: .isCompleted
-- Coroutines còn sống: .isActive
-
+- Job kết thúc: .isCompleted
+- Job còn sống (running, chưa complete) : .isActive
