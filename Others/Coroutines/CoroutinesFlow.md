@@ -24,6 +24,8 @@
   - [Chạy code phía dưới trước: launchIn](#chạy-code-phía-dưới-trước-launchin)
   - [Catch Exception](#catch-exception)
   - [Flow kết thúc](#flow-kết-thúc)
+  - [StateFlow, Flow, and LiveData](#stateflow-flow-and-livedata)
+  - [MutableStateFlow vs MutableSharedFlow](#mutablestateflow-vs-mutablesharedflow)
   - [Reference](#reference)
 
 ## Cú pháp
@@ -42,6 +44,9 @@ fun numberList(): Flow<Int> = flow {
     // có thể dùng Suppend funtions trong flow
     // Chỉ chạy trên 1 context
 }
+
+// OR
+val myIntFlow: Flow<Int> = flow { emit(1)  }
 
 // OR
 val data = flowOf(1,"abc", 3.4, "def")
@@ -238,6 +243,17 @@ flow{ }
     .catch { cause -> println("Caught exception") }
     .collect { value -> println(value) }
 ```
+
+## StateFlow, Flow, and LiveData
+
+- StateFlow giống LiveData
+- LiveData.observe() tự Stop theo View. Flow cần huỷ bằng Lifecycle.repeatOnLifecycle
+
+## MutableStateFlow vs MutableSharedFlow
+
+- StateFlow: cần khởi tạo giá trị emit mặc định
+
+---
 
 ## Reference
 

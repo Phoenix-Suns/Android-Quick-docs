@@ -2,12 +2,14 @@
 
 lifecycle-aware observable data holder. Quan sát thay đổi, tự update lên giao diện
 
-- [LiveData - Data Gắn liền với Android Component Life Cycle](#livedata---data-g%e1%ba%afn-li%e1%bb%81n-v%e1%bb%9bi-android-component-life-cycle)
+- [LiveData - Data Gắn liền với Android Component Life Cycle](#livedata---data-gắn-liền-với-android-component-life-cycle)
   - [Setup Step By Step](#setup-step-by-step)
     - [Setup](#setup)
     - [File View Model](#file-view-model)
-    - [Update Date trên Android Component (Activity)](#update-date-tr%c3%aan-android-component-activity)
-  - [Lắng nghe qua Các FRAGMENT](#l%e1%ba%afng-nghe-qua-c%c3%a1c-fragment)
+    - [Update Date trên Android Component (Activity)](#update-date-trên-android-component-activity)
+  - [Lắng nghe qua Các FRAGMENT](#lắng-nghe-qua-các-fragment)
+  - [SingleLiveEvent vs MutableLiveData](#singleliveevent-vs-mutablelivedata)
+  - [Tham khảo](#tham-khảo)
 
 ## Setup Step By Step
 
@@ -153,9 +155,15 @@ public class MasterFragment extends Fragment implements MasterAdapter.OnItemClic
 }
 ```
 
----
-**Tham khảo**
+## SingleLiveEvent vs MutableLiveData
 
-- https://viblo.asia/p/android-livedata-oOVlY1Yrl8W
-- https://viblo.asia/p/android-architecture-components-viewmodel-xu-ly-configuration-changes-chua-bao-gio-don-gian-den-the-ByEZk3A4ZQ0
-- https://developer.android.com/jetpack/docs/guide#best-practices
+- MutableLiveData: vấn đề: setValue nhưng không chắc sẽ nhận được, như send 2 lần liên tục quá nhanh -> nên mất dữ liệu ra
+- SingleLiveEvent: setValue kiểu Queue, đợi dữ liệu nhận, rồi mới gởi tiếp (First In First Out)
+
+---
+
+## Tham khảo
+
+- <https://viblo.asia/p/android-livedata-oOVlY1Yrl8W>
+- <https://viblo.asia/p/android-architecture-components-viewmodel-xu-ly-configuration-changes-chua-bao-gio-don-gian-den-the-ByEZk3A4ZQ0>
+- <https://developer.android.com/jetpack/docs/guide#best-practices>
