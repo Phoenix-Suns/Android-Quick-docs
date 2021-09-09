@@ -1,5 +1,6 @@
 {
     // "MD007": { "indent": 4 },
+    "MD045": false,
     "MD009": false,
     "no-hard-tabs": false,
     "MD013": false

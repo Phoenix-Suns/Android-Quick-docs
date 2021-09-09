@@ -6,6 +6,11 @@
 ## Ví dụ
 
 ```java
+val channel = Channel<Int>()
+channel.send(1) // Gởi giá trị
+println(channel.receive()) // Nhận giá trị
+
+// EXAMPLE
 // Hiện mỗi giá trị, sau mỗi giây
 fun main() = runBlocking {
     val channel = Channel<Int>()

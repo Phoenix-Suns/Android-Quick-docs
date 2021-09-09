@@ -26,11 +26,26 @@
   - [Flow kết thúc](#flow-kết-thúc)
   - [StateFlow, Flow, and LiveData](#stateflow-flow-and-livedata)
   - [MutableStateFlow vs MutableSharedFlow](#mutablestateflow-vs-mutablesharedflow)
+  - [So sánh Rx](#so-sánh-rx)
   - [Reference](#reference)
 
 ## Cú pháp
 
 ```java
+val myIntFlow: Flow<Int> = flow { 
+    emit(1) /*Send value*/ 
+}
+myIntFlow.collect {
+    println(it) /*receive value*/
+}
+
+// OR
+val data = flowOf(1,"abc", 3.4, "def")
+
+// OR
+listOf(1, "abc", 3.4, "def").asFlow()
+
+// EXAMPLE
 // Xuất ra số đồng thời
 numberList().collect { println(it) }    // chỉ chạy khi gọi collect
 
@@ -44,15 +59,6 @@ fun numberList(): Flow<Int> = flow {
     // có thể dùng Suppend funtions trong flow
     // Chỉ chạy trên 1 context
 }
-
-// OR
-val myIntFlow: Flow<Int> = flow { emit(1)  }
-
-// OR
-val data = flowOf(1,"abc", 3.4, "def")
-
-// OR
-listOf(1, "abc", 3.4, "def").asFlow()
 ```
 
 ## Sequence: xuất ra list tuần tự (đồng bộ)
@@ -252,6 +258,14 @@ flow{ }
 ## MutableStateFlow vs MutableSharedFlow
 
 - StateFlow: cần khởi tạo giá trị emit mặc định
+
+## So sánh Rx
+
+- Flow = (cold) Flowable / Observable / Single
+- Channel = Subjects
+- StateFlow = BehaviorSubjects (Always emits something)
+- SharedFlow = PublishSubjects (Starts with no value)
+- primitive suspend functions = Single / Maybe / Completable
 
 ---
 
