@@ -2,24 +2,19 @@
 
 http://square.github.io/retrofit/
 
-<!-- TOC -->
-
 - [Retrofit 2: Kết nối WebService, Rest API](#retrofit-2-kết-nối-webservice-rest-api)
-    - [Cài đặt](#cài-đặt)
-    - [Simple Example - Ví dụ cơ bản](#simple-example---ví-dụ-cơ-bản)
-        - [Step 1: Tạo Object dựa vào Json trả về. Truy cập: http://www.jsonschema2pojo.org/](#step-1-tạo-object-dựa-vào-json-trả-về-truy-cập-httpwwwjsonschema2pojoorg)
-        - [Step 2: Tạo Interface lấy data](#step-2-tạo-interface-lấy-data)
-        - [Step 3: Thực thi](#step-3-thực-thi)
-    - [1 Số phương Thức thông dụng](#1-số-phương-thức-thông-dụng)
-        - [GET](#get)
-        - [POST JSON BODY](#post-json-body)
-        - [POST FORM DATA](#post-form-data)
-        - [POST FORM IMAGE](#post-form-image)
-        - [Download Image](#download-image)
-    - [Gợi ý Sắp Xếp File](#gợi-ý-sắp-xếp-file)
-
-<!-- /TOC -->
-
+  - [Cài đặt](#cài-đặt)
+  - [Simple Example - Ví dụ cơ bản](#simple-example---ví-dụ-cơ-bản)
+    - [Step 1: Tạo Object dựa vào Json trả về. Truy cập: http://www.jsonschema2pojo.org/](#step-1-tạo-object-dựa-vào-json-trả-về-truy-cập-httpwwwjsonschema2pojoorg)
+    - [Step 2: Tạo Interface lấy data](#step-2-tạo-interface-lấy-data)
+    - [Step 3: Thực thi](#step-3-thực-thi)
+  - [1 Số phương Thức thông dụng](#1-số-phương-thức-thông-dụng)
+    - [GET](#get)
+    - [POST JSON BODY](#post-json-body)
+    - [POST FORM DATA](#post-form-data)
+    - [POST FORM IMAGE](#post-form-image)
+    - [Download Image](#download-image)
+  - [Gợi ý Sắp Xếp File](#gợi-ý-sắp-xếp-file)
 
 ## Cài đặt
 
