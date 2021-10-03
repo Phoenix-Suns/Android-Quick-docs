@@ -37,6 +37,22 @@
 (cornerFamilyTopLeft, cornerFamilyTopRight, cornerFamilyBottomRight, cornerFamilyBottomLeft)
 - cornerSize — corner size to be used for all four corners (cornerSizeTopLeft, cornerSizeTopRight, cornerSizeBottomRight, cornerSizeBottomLeft)
 
+### Button
+
+```xml
+<style name="MyButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <item name="shapeAppearanceOverlay">@style/MyShapeAppearance</item>
+</style>
+<style name="MyShapeAppearance">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerFamilyTopRight">cut</item>
+    <item name="cornerFamilyBottomRight">cut</item>
+    <item name="cornerSizeTopLeft">32dp</item>
+    <item name="cornerSizeBottomLeft">32dp</item>
+</style>
+```
+
+## Tham khảo
+
 - <https://howtodoandroid.com/shapeableimageview-material-components-android/>
-
-
+- <https://stackoverflow.com/questions/42684717/rounded-corners-on-material-button>
