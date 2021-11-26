@@ -1,19 +1,20 @@
-# Lệnh ADB - Fastboot thông dụng
+# Lệnh ADB - Fastboot - Shell thông dụng
 
-- [Lệnh ADB - Fastboot thông dụng](#lệnh-adb---fastboot-thông-dụng)
+- [Lệnh ADB - Fastboot - Shell thông dụng](#lệnh-adb---fastboot---shell-thông-dụng)
   - [ADB](#adb)
-    - [Khởi động vào bootloader](#khởi-động-vào-bootloader)
+    - [Cài file apk](#cài-file-apk)
     - [Copy files vào devices](#copy-files-vào-devices)
-    - [Xoá thư mục](#xoá-thư-mục)
-    - [Xoá file](#xoá-file)
     - [Yêu cầu quyền root](#yêu-cầu-quyền-root)
     - [Reset devices](#reset-devices)
     - [Restart](#restart)
-    - [Chạy file sh trong sdcard](#chạy-file-sh-trong-sdcard)
     - [Truy cập vào Shell (tập lệnh) của device](#truy-cập-vào-shell-tập-lệnh-của-device)
+    - [Khởi động vào bootloader](#khởi-động-vào-bootloader)
+      - [Chạy file sh trong sdcard](#chạy-file-sh-trong-sdcard)
       - [Truy cập sdcard](#truy-cập-sdcard)
-    - [Cài file apk](#cài-file-apk)
-    - [Khởi động ứng dụng](#khởi-động-ứng-dụng)
+      - [Khởi động ứng dụng](#khởi-động-ứng-dụng)
+      - [Xoá thư mục](#xoá-thư-mục)
+      - [Xoá file](#xoá-file)
+      - [Hiện tất cả ip](#hiện-tất-cả-ip)
   - [Fastboot](#fastboot)
     - [Danh sách device connect](#danh-sách-device-connect)
     - [Khởi động file img](#khởi-động-file-img)
@@ -22,7 +23,7 @@
 
 ## ADB
 
-```
+```quote
 ### Danh sách device kết nối
 adb devices
 
@@ -31,100 +32,113 @@ List of devices attached
 be601824        device
 ```
 
-### Khởi động vào bootloader
+### Cài file apk
 
-```
-adb shell reboot bootloader
+```quote
+adb install -r amazmod\service-release.apk
 ```
 
 ### Copy files vào devices
 
-```
+```quote
 adb push rom\start_update.sh /sdcard/
 adb push rom\recovery.img /sdcard/
 ```
 
-### Xoá thư mục
-
-```
-adb shell rm -r /sdcard/supersu/
-```
-
-### Xoá file
-
-```
-adb shell rm /sdcard/recovery.img
-```
-
 ### Yêu cầu quyền root
 
-```
+```quote
 adb root
 adb remount rw
 ```
 
 ### Reset devices
 
-```
+```quote
 adb reboot wipe
 ```
 
 ### Restart
 
-```
+```quote
 adb reboot
-```
-
-### Chạy file sh trong sdcard
-
-```
-adb shell cd /sdcard/; sh start_update.sh
 ```
 
 ### Truy cập vào Shell (tập lệnh) của device
 
-```
+```quote
 adb root
 adb shell
 
 // Output
 root@watch:/ #
+
+// OR
+adb shell <lệnh>
+```
+
+### Khởi động vào bootloader
+
+```quote
+adb shell reboot bootloader
+```
+
+#### Chạy file sh trong sdcard
+
+```quote
+adb shell cd /sdcard/; sh start_update.sh
 ```
 
 #### Truy cập sdcard
 
-```
+```quote
 adb shell cd /sdcard/
 ```
 
-### Cài file apk
+#### Khởi động ứng dụng
 
-```
-adb install -r amazmod\service-release.apk
-```
-
-### Khởi động ứng dụng
-
-```
+```quote
 adb shell monkey -p com.amazmod.service 1
 ```
 
+#### Xoá thư mục
+
+```quote
+adb shell rm -r /sdcard/supersu/
+```
+
+#### Xoá file
+
+```quote
+adb shell rm /sdcard/recovery.img
+```
+
+#### Hiện tất cả ip
+
+```quote
+// Android 7
+adb shell ifconfig
+adb shell ip address show
+
+// Android 5
+adb shell netcfg | grep wlan0
+```
 
 ## Fastboot
 
 ### Danh sách device connect
 
-```
+```quote
 fastboot devices
 ```
 
 ### Khởi động file img
 
-```
+```quote
 fastboot boot root\boot-US-adb-root.img
 ```
 
-```
+```quote
 fastboot devices
 // Check whether the device is detected and recognized by the computer
 
@@ -158,7 +172,7 @@ fastboot erase
 
 ## Cú pháp file Bat (window)
 
-```
+```quote
 echo  0. Restarting adb server
 echo **************************
 adb.exe kill-server >nul 2>&1
