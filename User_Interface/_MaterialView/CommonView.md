@@ -17,7 +17,7 @@
 
 ## Shape image
 
-- Tạo khung cho Image (Vuông, Tròn, Tam giác)
+- Tạo khung cho Image (Vuông, Bo Tròn Circle, Tam giác)
 
 ```xml
 <com.google.android.material.imageview.ShapeableImageView

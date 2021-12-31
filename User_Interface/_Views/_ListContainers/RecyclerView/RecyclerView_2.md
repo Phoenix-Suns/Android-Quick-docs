@@ -15,3 +15,25 @@ recyclerViewSlider.layoutManager = sliderLayout
 val snapHelper = PagerSnapHelper()
 snapHelper.attachToRecyclerView(recyclerViewSlider)
 ```
+
+## Endless Scroll (circular scroll)
+
+```java
+// Adapter
+var isCircularScroll: Boolean = true
+
+override fun getItemCount(): Int {
+    return if (isCircularScroll)
+        Int.MAX_VALUE
+    else
+        super.getItemCount()
+}
+
+override fun onBindViewHolder(holder: MomentViewHolder, position: Int) {
+    val itemPosition = if (isCircularScroll)
+        position % items.size
+    else
+        position
+    super.onBindViewHolder(holder, itemPosition)
+}
+```
