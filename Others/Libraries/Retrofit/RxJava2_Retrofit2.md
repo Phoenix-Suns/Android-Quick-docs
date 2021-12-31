@@ -39,6 +39,8 @@ interface GithubWS {
 Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://api.github.com/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        //.addConverterFactory(ScalarsConverterFactory.create())    // Convert to String JSON
+        /* implementation 'com.squareup.retrofit2:converter-scalars:2.9.0' */
         .addConverterFactory(GsonConverterFactory.create())
         .build();
 GithubWS githubService = retrofit.create(GithubWS.class);
