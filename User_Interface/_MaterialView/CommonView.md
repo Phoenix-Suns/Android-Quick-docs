@@ -23,6 +23,7 @@
 <com.google.android.material.imageview.ShapeableImageView
     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
     app:strokeWidth="10dp"
+    android:padding="10dp"
     app:strokeColor="@android:color/darker_gray"
 />
 
@@ -50,6 +51,18 @@
     <item name="cornerSizeTopLeft">32dp</item>
     <item name="cornerSizeBottomLeft">32dp</item>
 </style>
+```
+
+### Dời View 1 đoạn
+
+```xml
+android:translationY="8dp"
+```
+
+### Đổi hình cursor khi gõ chữ
+
+```xml
+android:textCursorDrawable="@drawable/ic_name"
 ```
 
 ## Tham khảo

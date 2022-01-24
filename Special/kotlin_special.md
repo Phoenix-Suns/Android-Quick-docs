@@ -33,4 +33,61 @@ fun <T : ImageView> T.loadWithCoil(url: String?) {
 
 - <https://kotlinlang.org/docs/scope-functions.html#function-selection>
 
+- Use: extensively to automatically manage those resources
+
+```java
+val content = "Hello World".repeat(1000)
+val file: File = createTempFile()
+val inputStream = ByteArrayInputStream(content.toByteArray())
+
+inputStream.use { input ->
+    file.outputStream().use { output ->
+        input.copyTo(output)
+    }
+}
+
+assertThat(file).hasContent(content)
+
+fun File.copyInputStreamToFile(inputStream: InputStream) {
+    this.outputStream().use { fileOut ->
+        inputStream.copyTo(fileOut)
+    }
+}
+
+fun InputStream.toFile(path: String) {
+    File(path).outputStream().use { this.copyTo(it) }
+}
+```
+
+## Sử dụng interface onBackPressed cho fragment
+
+```java
+// === 1 - Create Interface
+interface IOnBackPressed {
+    fun onBackPressed(): Boolean
+}
+// === 2 - Prepare your Activity
+class MyActivity : AppCompatActivity() {
+    override fun onBackPressed() {
+        val fragment = this.supportFragmentManager.findFragmentById(R.id.main_container)
+        (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
+            super.onBackPressed()
+        }
+    }
+}
+// === 3 - Implement in your target Fragment
+class MyFragment : Fragment(), IOnBackPressed {
+    override fun onBackPressed(): Boolean {
+        return if (myCondition) {
+            //action not popBackStack
+            true
+        } else {
+            false
+        }
+    }
+}
+```
+
+- <https://stackoverflow.com/questions/5448653/how-to-implement-onbackpressed-in-fragments>
+
 
