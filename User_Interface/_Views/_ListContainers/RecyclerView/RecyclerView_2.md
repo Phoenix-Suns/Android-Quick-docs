@@ -2,6 +2,8 @@
 
 - [Special RecyclerView](#special-recyclerview)
   - [Slide](#slide)
+  - [Endless Scroll (circular scroll)](#endless-scroll-circular-scroll)
+  - [Kiểm tra đồng nhất Item (DiffUtil)](#kiểm-tra-đồng-nhất-item-diffutil)
 
 ## Slide
 
@@ -35,5 +37,35 @@ override fun onBindViewHolder(holder: MomentViewHolder, position: Int) {
     else
         position
     super.onBindViewHolder(holder, itemPosition)
+}
+```
+
+## Kiểm tra đồng nhất Item (DiffUtil)
+
+- <https://www.raywenderlich.com/21954410-speed-up-your-android-recyclerview-using-diffutil>
+
+```java
+class DeckCollectionAdapter : ListAdapter<UserProfile, DeckCollectionAdapter.DeckCollectionViewHolder>(
+    AsyncDifferConfig.Builder(DeckCollectionDiffCallback())
+        .setBackgroundThreadExecutor(Executors.newSingleThreadExecutor())
+        .build()
+) {
+
+    // notifyDataSetChanged()
+    fun refresh(items: List<UserProfile>) {
+        submitList(items.toList())  // Duplicate old list
+    }
+
+    internal class DeckCollectionDiffCallback : DiffUtil.ItemCallback<UserProfile>() {
+        override fun areItemsTheSame(oldItem: UserProfile, newItem: UserProfile): Boolean {
+            return oldItem.uid == newItem.uid
+        }
+
+        override fun areContentsTheSame(oldItem: UserProfile, newItem: UserProfile): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+
 }
 ```

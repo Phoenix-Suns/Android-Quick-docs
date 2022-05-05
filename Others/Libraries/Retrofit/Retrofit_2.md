@@ -108,14 +108,23 @@ Call<WSResultBase> sendUserInfo(@Body HashMap<String, Object> body);
 // === Using ===
 /*post value: {
     "name": "The Jester",
-        "phone": "0123456789",
-        "email": "logan@adquestasia.com"
+    "phone": "0123456789",
+    "email": "logan@adquestasia.com",
+    "users":["u4myDnTPmxUQItNQXXNnAWo1KXs1"]
 }*/
 
 HashMap<String, Object> body = new HashMap<>();
 body.put("name", name);
 body.put("phone", phone);
 body.put("email", email);
+body.put("users", new List<String>());
+//body.put("users", new ArrayList<>(Arrays.asList("u4myDnTPmxUQItNQXXNnAWo1KXs1")));
+
+//OR
+//@Body data: Any
+//val data = JsonObject()
+//data.addProperty("name", name)
+//data.addProperty("phone", phone)
 
 return service.sendUserInfo(body);
 ```

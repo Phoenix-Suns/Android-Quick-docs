@@ -1,4 +1,4 @@
-# Add List View bằng code
+# Add View bằng code
 
 ```java
 
@@ -12,6 +12,15 @@ val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as Layo
 linearLayout?.removeAllViews()
 for (comment: Comment in listComment) {
     val rootView = inflater.inflate(R.layout.item_comment_child, null)  // GET VIEW
+
+    // OR
+    // val binding = DataBindingUtil.inflate<ItemCommentChildBinding>(
+    //         LayoutInflater.from(context),
+    //         R.layout.item_comment_child,
+    //         null,
+    //         false
+    //     )
+    // val rootView = binding.root
 
     //BIND DATA
     rootView.findViewById<TextView>(R.id.textView_userName).text = comment.userName

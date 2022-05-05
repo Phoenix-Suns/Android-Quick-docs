@@ -386,3 +386,4 @@ fun main() = runBlocking {
 ## Reference
 
 - <https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-1-gioi-thieu-kotlin-coroutine-va-ky-thuat-lap-trinh-bat-dong-bo-gGJ59xajlX2>
+- <https://developer.android.com/kotlin/flow>

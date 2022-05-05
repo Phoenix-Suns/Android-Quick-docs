@@ -14,6 +14,10 @@
 - Màu: backgroundTint
 - Màu khi ấn: rippleColor
 - Viền: stroke
+- Tròn: cornerRadius
+- bỏ padding, margin: 
+    - android:insetBottom="0dp"
+    - android:minHeight="0dp"
 
 ## Shape image
 
