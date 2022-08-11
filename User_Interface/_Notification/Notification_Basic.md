@@ -1,7 +1,10 @@
 # Notification – Thông báo trên Status Bar
 
-- [Notification – Thông báo trên Status Bar](#notification-%e2%80%93-th%c3%b4ng-b%c3%a1o-tr%c3%aan-status-bar)
+- [Notification – Thông báo trên Status Bar](#notification--thông-báo-trên-status-bar)
 	- [Simple Example](#simple-example)
+	- [Sử dụng: NotificationCompat, không cần chia phiên bản android](#sử-dụng-notificationcompat-không-cần-chia-phiên-bản-android)
+	- [Service giao tiếp Notification](#service-giao-tiếp-notification)
+	- [Notification Channel (android O)](#notification-channel-android-o)
 
 ## Simple Example
 
@@ -240,7 +243,7 @@ private fun bindingForegroundNotification() {
 ```java
 val intent = Intent(this, MainActivity::class.java)
 	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-	val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+	val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
 
 	val channelId = getString(R.string.app_name)
 	val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)

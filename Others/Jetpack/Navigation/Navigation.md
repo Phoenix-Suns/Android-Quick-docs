@@ -18,6 +18,7 @@
     - [Điều hướng trong Fragment](#điều-hướng-trong-fragment)
     - [Gởi Argument giữa các Fragment](#gởi-argument-giữa-các-fragment)
     - [Tạo PendingIntent (DeepLink)](#tạo-pendingintent-deeplink)
+  - [Thay đổi trong Fragment](#thay-đổi-trong-fragment)
   - [Tham khảo](#tham-khảo)
 
 ## Cài đặt
@@ -95,9 +96,12 @@ app:startDestination: Fragmen gốc, hiện đầu tiên-->
         <!--app:popUpTo="@id/gameHomeFragment"
         Nhảy đến Fragment trước, bỏ qua tất cả fragment ở giữa
         -->
+        app:popUpToInclusive="true" // Thay thế gameHomeFragment cũ bằng mới
+        app:popUpToSaveState="true" // Lưu trạng thái điều hướng
     </fragment>
 </navigation>
 ```
+
 
 ## Sử dụng
 
@@ -139,6 +143,10 @@ supportFragmentManager.beginTransaction().replace(R.id.layoutFragmentContainer, 
 ```java
 //Từ HomeFragment hiện LeaderBoard Fragment
 findNavController().navigate(R.id.action_gameHomeFragment_to_leaderBoardFragment, null)
+// or
+findNavController().navigate(GameHomeFragmentDirections.actionGameHomeFragmentToLeaderBoardFragment())
+// Or
+findNavController().navigate(R.id.leaderBoardFragment, LeaderBoardFragmentArgs().toBundle())
 
 // Quay về Fragment trước
 findNavController().popBackStack()
@@ -199,6 +207,33 @@ val pendingIntent = NavDeepLinkBuilder(context)
 
 // Nhận ở deepLinkFragment
 val myarg = arguments?.getString("myarg")
+```
+
+## Thay đổi trong Fragment
+
+```java
+class Leaderboard : Fragment() {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_leaderboard, container, false)
+
+        // ======= Find, Init View =======
+        val viewAdapter = MyAdapter(Array(10) { "Person ${it + 1}" })
+        view.findViewById<RecyclerView>(R.id.leaderboard_list).run {
+            adapter = viewAdapter
+        }
+
+        // ======== Set Event ========
+        view.findViewById<Button>(R.id.about_btn).setOnClickListener {
+            findNavController().navigate(R.id.action_title_to_about)
+        }
+
+        return view
+    }
+
+}
 ```
 
 ---

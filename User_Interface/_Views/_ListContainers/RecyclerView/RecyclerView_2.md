@@ -4,6 +4,7 @@
   - [Slide](#slide)
   - [Endless Scroll (circular scroll)](#endless-scroll-circular-scroll)
   - [Kiểm tra đồng nhất Item (DiffUtil)](#kiểm-tra-đồng-nhất-item-diffutil)
+  - [Update Child View in ViewHolder](#update-child-view-in-viewholder)
 
 ## Slide
 
@@ -68,4 +69,44 @@ class DeckCollectionAdapter : ListAdapter<UserProfile, DeckCollectionAdapter.Dec
     }
 
 }
+```
+
+## Update Child View in ViewHolder
+
+```java
+// Activity
+adapter.notifyItemChanged(somePosition, YourAdapter.PAYLOAD_NAME);
+
+
+//#region Adapter
+public static final String PAYLOAD_NAME = "PAYLOAD_NAME";
+public static final String PAYLOAD_AGE = "PAYLOAD_AGE";
+
+@Override
+public void onBindViewHolder(final YourViewHolder holder, final int position) {
+    final YourItem item = getItem(position);
+    holder.tvName.setText(item.getName());
+    holder.tvAge.setText(String.valueOf(item.getAge()));
+}
+
+// Update View with Payload
+@Override
+public void onBindViewHolder(final YourViewHolder holder, final int position, final List<Object> payloads) {
+    if (!payloads.isEmpty()) {
+        final YourItem item = getItem(position);
+        for (final Object payload : payloads) {
+            if (payload.equals(PAYLOAD_NAME)) {
+               // in this case only name will be updated
+               holder.tvName.setText(item.getName());
+            } else if (payload.equals(PAYLOAD_AGE)) {
+               // only age will be updated
+               holder.tvAge.setText(String.valueOf(item.getAge()));
+            }
+        }
+    } else {
+        // in this case regular onBindViewHolder will be called
+        super.onBindViewHolder(holder, position, payloads);
+    }
+}
+//#endregion
 ```
