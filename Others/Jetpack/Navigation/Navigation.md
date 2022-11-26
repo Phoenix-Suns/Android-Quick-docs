@@ -100,6 +100,10 @@ app:startDestination: Fragmen gốc, hiện đầu tiên-->
         app:popUpToSaveState="true" // Lưu trạng thái điều hướng
     </fragment>
 </navigation>
+
+<action ...
+    enterAnim: showing distination animation
+    popEnterAnim: show current fragment animation when back />
 ```
 
 
