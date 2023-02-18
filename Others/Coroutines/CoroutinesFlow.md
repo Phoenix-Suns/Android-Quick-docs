@@ -244,7 +244,7 @@ flow { }.onCompletion { println("Done") }
 flow{ }
     .onCompletion { cause -> 
         if (cause != null) 
-            println("Done no ERROR") 
+            println("Done no ERROR") Widget.MyApplication.AppWidget.Container
     }
     .catch { cause -> println("Caught exception") }
     .collect { value -> println(value) }

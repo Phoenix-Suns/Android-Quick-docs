@@ -60,7 +60,7 @@ private void setUpBottomTabNavigation() {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             // show Fragment
             TabFragment tabInfo = tabList.get(item.getItemId());
-            loadTabFragment(tabInfo.getFragment());
+            replaceFragment(tabInfo.getFragment());
             return true;
         }
     });
@@ -74,7 +74,7 @@ protected List<TabFragment> getTabList() {
     return tabList;
 }
 
-private void loadTabFragment(Fragment fragment) {
+private void replaceFragment(Fragment fragment) {
     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
     Fragment exitsFragment = fm.findFragmentById(R.id.flTabContent);
     if (exitsFragment == null)
@@ -86,7 +86,7 @@ private void loadTabFragment(Fragment fragment) {
 
 /** load fragment giữ lại stage
 **/
-private void loadTabFragment(Fragment fragment) {
+private void replaceFragment(Fragment fragment) {
     // 1 ý tưởng khác:
     // hide fragment hiện tại
     // Tìm fragment trong FragmentManager
@@ -116,6 +116,22 @@ private void loadTabFragment(Fragment fragment) {
 
     transaction.commit();
 }
+
+private fun FragmentManager.replaceFragment(fragment: Fragment, @IdRes containerIdRes: Int) {
+        beginTransaction().apply {
+            if (fragment.isAdded) {
+                show(fragment)
+            } else {
+                add(containerIdRes, fragment)
+            }
+
+            fragments.forEach {
+                if (it != fragment && it.isAdded) {
+                    hide(it)
+                }
+            }
+        }.commit()
+    }
 ```
 
 ## Create Badge
