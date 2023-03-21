@@ -3,6 +3,7 @@
 Work Manager là một thư viện được thiết kế cho việc lập lịch và quản lý các tác vụ ngầm. (giống JobScheduler), Dể sử dụng, dể truy cập, dể huỷ, hỗ trợ mọi android 14 trở lên.
 
 ```java
+// ===== Khởi tạo =====
 class DownloadWorker : Worker() {
 
     // Define the parameter keys:
@@ -35,10 +36,9 @@ class DownloadWorker : Worker() {
         return WorkerResult.SUCCESS
     }
 }
-```
 
-```java
-// === Gọi để chạy ===
+
+// ===== Gọi để chạy =====
 // Chạy khi Được Sạc
 val myConstraints = Constraints.Builder()
     .setRequiresCharging(true)
@@ -65,7 +65,8 @@ val request = OneTimeWorkRequest.Builder(DownloadWorker::class.java)
 
 WorkManager.getInstance().enqueue(request)
 
-// === Nhận Output ===
+
+// ===== Nhận Output =====
 WorkManager.getInstance()
   .getStatusById(request.id)
   .observe(this@MainActivity, Observer {
@@ -83,7 +84,8 @@ WorkManager.getInstance()
     }
 })
 
-// === Huỷ tác vụ ===
+
+// ===== Huỷ tác vụ =====
 val compressionWorkId:UUID = compressionWork.getId()
 WorkManager.getInstance().cancelWorkById(compressionWorkId)
 ```
