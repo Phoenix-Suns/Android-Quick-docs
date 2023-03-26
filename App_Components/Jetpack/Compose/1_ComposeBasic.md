@@ -10,22 +10,43 @@ Button:
 Helper:
 Other:
 
+## Button
+
+```kotlin
+@Composable
+fun CustomButtom() {
+    // Nhận button trả về
+    var result by remember { mutableStateOf(1) }
+
+    // Gọi trong View
+    Button(onClick = {
+        // gởi ra ngoài
+        result = (1..6).random()
+    }) {
+        Text(stringResource(R.string.roll))
+    }
+}
+```
+
 ## Lưu dữ liệu Output trả về
 
 ```kotlin
+// Khi sử dụng remember phải import
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 
+@Composable
+fun CustomTextField() {
+    // Lưu dữ liệu trả về
+    var amountInput by remember { mutableStateOf("") }
 
-// Lưu dữ liệu trả về
-var amountInput by remember { mutableStateOf("") }
-
-// Gọi trong View
-TextField(
-    value = amountInput,
-    onValueChange = { amountInput = it },
-)
+    // Gọi trong View
+    TextField(
+        value = amountInput,
+        onValueChange = { amountInput = it },
+    )
+}
 ```
 
 ## Custom View
@@ -33,7 +54,7 @@ TextField(
 ```kotlin
 // ===== Custom Switch =====
 @Composable
-fun RoundTheTipRow(
+fun CustomSwitch(
     roundUp: Boolean,
     onRoundUpChanged: (Boolean) -> Unit,
     modifier: Modifier = Modifier
@@ -60,9 +81,12 @@ fun RoundTheTipRow(
 
 
 // ===== Using =====
-// Trong View
-RoundTheTipRow(roundUp = roundUp, onRoundUpChanged = { roundUp = it })
+@Composable
+fun MainView() {
+    // Lấy dữ liệu trả về
+    var roundUp by remember { mutableStateOf(false) }
 
-// Lấy dữ liệu trả về
-var roundUp by remember { mutableStateOf(false) }
+    // Gọi trong Trong View
+    CustomSwitch(roundUp = roundUp, onRoundUpChanged = { roundUp = it })
+}
 ```
