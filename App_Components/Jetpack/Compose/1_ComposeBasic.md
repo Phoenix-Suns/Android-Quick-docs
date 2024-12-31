@@ -1,5 +1,11 @@
 # Compose properties chung
 
+- [Compose properties chung](#compose-properties-chung)
+  - [Button](#button)
+  - [Lưu dữ liệu Output trả về](#lưu-dữ-liệu-output-trả-về)
+  - [Custom View](#custom-view)
+  - [Preview](#preview)
+
 Container:
 - Column
 - Row
@@ -89,4 +95,12 @@ fun MainView() {
     // Gọi trong Trong View
     CustomSwitch(roundUp = roundUp, onRoundUpChanged = { roundUp = it })
 }
+```
+
+## Preview
+
+```kotlin
+@Preview
+@Composable
+fun MessageCardPreview() { }
 ```
