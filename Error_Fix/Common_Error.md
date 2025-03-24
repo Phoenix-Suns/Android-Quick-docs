@@ -14,3 +14,19 @@ By calling .setLogLevel(RestAdapter.LogLevel.FULL) you are forcing Retrofit to b
 Enabling logging like this should only be done when debugging.
 
  - Fix: HttpLoggingInterceptor.Level.BODY -> BASIC
+
+ ## Lỗi DI
+
+ - Xóa thư mục "build"
+
+ ```shell
+ rm -rf ./build // linux, mac
+ rmdir /s /q build // window
+ ```
+
+ - xóa bằng gradlew:
+
+ ```shell
+ ./gradlew clean
+ ./gradlew :moduleName:clean // xóa module cụ thể
+ ```

@@ -5,6 +5,7 @@
   - [Đi đến View](#đi-đến-view)
   - [Cài đặt Định hướng](#cài-đặt-định-hướng)
   - [Gởi dữ liệu qua View](#gởi-dữ-liệu-qua-view)
+  - [Gởi dữ liệu qua NavHostController](#gởi-dữ-liệu-qua-navhostcontroller)
   - [Nhận dữ liệu trả về](#nhận-dữ-liệu-trả-về)
   - [Dùng Nav toàn Ứng dụng (Cách 1)](#dùng-nav-toàn-ứng-dụng-cách-1)
   - [Reference](#reference)
@@ -110,6 +111,71 @@ composable(
         password = backStackEntry.arguments?.getString("password"),
     )
 }
+```
+
+### Gởi, nhận object
+
+```kotlin
+@Parcelize
+data class User(val id: Int, val name: String) : Parcelable
+
+@Composable
+fun ScreenA(navController: NavController) {
+    val user = User(id = 1, name = "Nguyen Van A")
+    Button(onClick = {
+        val route = "screenB?user=${Uri.encode(Gson().toJson(user))}"
+        navController.navigate(route)
+    }) {
+        Text("Go to Screen B")
+    }
+}
+
+@Composable
+fun ScreenB(user: User?) {
+    Text("Received: ${user?.name}, ID: ${user?.id}")
+}
+
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "screenA") {
+        composable("screenA") { ScreenA(navController) }
+        composable("screenB?user={user}") { backStackEntry ->
+            val userJson = backStackEntry.arguments?.getString("user")
+            val user = userJson?.let { Gson().fromJson(it, User::class.java) }
+            ScreenB(user)
+        }
+    }
+}
+
+// ===== Lấy trong ViewModel
+class ScreenBViewModel(
+    savedStateHandle: SavedStateHandle
+) : ViewModel() {
+    private val userJson: String? = savedStateHandle["user"]
+    private val user = MutableStateFlow<User?>(null)
+
+    init {
+        userArg?.let {
+            val book: Book = Json.decodeFromString(bookArg)
+            user.value = userJson?.let { Gson().fromJson(it, User::class.java) }
+        }
+    }
+}
+```
+
+## Gởi dữ liệu qua NavHostController
+
+```kotlin
+// ===== Gởi (@Composable fun Screen A)
+navHostController.currentBackStackEntry
+    ?.savedStateHandle
+    ?.set("book_id", "book_1")
+
+// ===== Nhận (@Composable fun Screen B)
+val bookID = navController.previousBackStackEntry
+    ?.savedStateHandle
+    ?.get<String>("book_id")
 ```
 
 ## Nhận dữ liệu trả về
